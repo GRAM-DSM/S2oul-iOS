@@ -21,6 +21,14 @@ class InfoVC: UIViewController {
         
         
     }
+    
+    @IBAction func whenTouchedShowBtn(_ sender: UIButton) {
+    theaterBtn.backgroundColor = UIColor.white
+    
+    }
+    @IBAction func whenTouchedTheaterBtn(_ sender: UIButton) {
+        
+    }
 }
 
 
