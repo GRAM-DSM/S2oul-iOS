@@ -14,3 +14,9 @@ final class RoundButton: UIButton {
         self.layer.cornerRadius = self.frame.height / 2
     }
 }
+
+final class Round22View: UIView {
+    override func awakeFromNib() {
+        self.layer.cornerRadius = 22
+    }
+}

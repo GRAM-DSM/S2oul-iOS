@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Seoulnamsan_B.otf">
+            <string>SeN-CB</string>
+        </array>
+        <array key="Seoulnamsan_EB.otf">
+            <string>SeN-CEB</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SearchTheaterTableViewCell" customModule="S2oul" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="253" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="253" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="theaterName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBX-Cc-dwF">
+                        <rect key="frame" x="4" y="4" width="78" height="15"/>
+                        <fontDescription key="fontDescription" name="SeN-CEB" family="SeoulNamsan CEB" pointSize="15"/>
+                        <color key="textColor" red="0.14117647058823529" green="0.12941176470588234" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="theaterLocation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlC-8H-vJp">
+                        <rect key="frame" x="4" y="23" width="77" height="12"/>
+                        <fontDescription key="fontDescription" name="SeN-CB" family="SeoulNamsan CB" pointSize="12"/>
+                        <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="theaterTel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bde-lc-4Dp">
+                        <rect key="frame" x="4" y="39" width="49" height="12"/>
+                        <fontDescription key="fontDescription" name="SeN-CB" family="SeoulNamsan CB" pointSize="12"/>
+                        <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="theaterDistance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nz2-re-11H">
+                        <rect key="frame" x="86" y="7" width="77" height="12"/>
+                        <fontDescription key="fontDescription" name="SeN-CB" family="SeoulNamsan CB" pointSize="12"/>
+                        <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="tlC-8H-vJp" firstAttribute="top" secondItem="UBX-Cc-dwF" secondAttribute="bottom" constant="4" id="1hF-kE-PRq"/>
+                    <constraint firstItem="bde-lc-4Dp" firstAttribute="top" secondItem="tlC-8H-vJp" secondAttribute="bottom" constant="4" id="8He-ly-hFM"/>
+                    <constraint firstItem="Nz2-re-11H" firstAttribute="leading" secondItem="UBX-Cc-dwF" secondAttribute="trailing" constant="4" id="Che-kK-fej"/>
+                    <constraint firstItem="tlC-8H-vJp" firstAttribute="leading" secondItem="UBX-Cc-dwF" secondAttribute="leading" id="JGv-sd-9iw"/>
+                    <constraint firstItem="UBX-Cc-dwF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="Y6N-Qr-481"/>
+                    <constraint firstItem="Nz2-re-11H" firstAttribute="bottom" secondItem="UBX-Cc-dwF" secondAttribute="bottom" id="cEN-fc-G3u"/>
+                    <constraint firstItem="bde-lc-4Dp" firstAttribute="leading" secondItem="tlC-8H-vJp" secondAttribute="leading" id="kvD-4W-EwN"/>
+                    <constraint firstItem="UBX-Cc-dwF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="uZ9-qn-X9c"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="theaterDistance" destination="Nz2-re-11H" id="W1b-7C-wzf"/>
+                <outlet property="theaterLocation" destination="tlC-8H-vJp" id="LRT-Yd-qc8"/>
+                <outlet property="theaterName" destination="UBX-Cc-dwF" id="ybq-jC-XcJ"/>
+                <outlet property="theaterTel" destination="bde-lc-4Dp" id="yoV-9M-bhr"/>
+            </connections>
+            <point key="canvasLocation" x="89.130434782608702" y="150"/>
+        </tableViewCell>
+    </objects>
+</document>
