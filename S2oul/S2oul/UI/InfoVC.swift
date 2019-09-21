@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import Foundation
-
 
 class InfoVC: UIViewController {
     
@@ -18,7 +16,13 @@ class InfoVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    @IBAction func whenTouchedShowBtn(_ sender: UIButton) {
+    
+    
+    }
+    @IBAction func whenTouchedTheaterBtn(_ sender: UIButton) {
         
     }
 }
