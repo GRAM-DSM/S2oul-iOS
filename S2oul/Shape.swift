@@ -6,7 +6,6 @@
 //  Copyright © 2019 baby1234. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 final class RoundButton: UIButton {
