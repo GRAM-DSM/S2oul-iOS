@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import Foundation
-
 
 class InfoVC: UIViewController {
     
@@ -18,12 +16,10 @@ class InfoVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
     
     @IBAction func whenTouchedShowBtn(_ sender: UIButton) {
-    theaterBtn.backgroundColor = UIColor.white
+    
     
     }
     @IBAction func whenTouchedTheaterBtn(_ sender: UIButton) {
