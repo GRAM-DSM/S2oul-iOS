@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Seoulnamsan_EB.otf">
+            <string>SeN-CEB</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SearchHistoryTableViewCell" customModule="S2oul" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gobackward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pnu-Ln-vE5">
+                        <rect key="frame" x="24" y="10.5" width="20" height="21.5"/>
+                        <color key="tintColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="pnu-Ln-vE5" secondAttribute="height" multiplier="1:1" id="yNs-xV-tOr"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nU-JS-Oq2">
+                        <rect key="frame" x="278" y="11" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="1nU-JS-Oq2" secondAttribute="height" id="aUQ-F2-PmK"/>
+                        </constraints>
+                        <color key="tintColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <state key="normal" image="xmark" catalog="system"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="historyTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lz-fr-BRe">
+                        <rect key="frame" x="64" y="11" width="194" height="22"/>
+                        <fontDescription key="fontDescription" name="SeN-CEB" family="SeoulNamsan CEB" pointSize="13"/>
+                        <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="1nU-JS-Oq2" secondAttribute="trailing" constant="20" id="2Ci-nS-USt"/>
+                    <constraint firstItem="2lz-fr-BRe" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="YZY-iH-dPE"/>
+                    <constraint firstItem="1nU-JS-Oq2" firstAttribute="height" secondItem="2lz-fr-BRe" secondAttribute="height" id="bob-gE-M4V"/>
+                    <constraint firstItem="pnu-Ln-vE5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cbA-G6-htT"/>
+                    <constraint firstItem="1nU-JS-Oq2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="evu-UW-iIk"/>
+                    <constraint firstItem="1nU-JS-Oq2" firstAttribute="leading" secondItem="2lz-fr-BRe" secondAttribute="trailing" constant="20" id="hYV-mg-Ohi"/>
+                    <constraint firstItem="pnu-Ln-vE5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="v0K-Ms-26F"/>
+                    <constraint firstItem="2lz-fr-BRe" firstAttribute="leading" secondItem="pnu-Ln-vE5" secondAttribute="trailing" constant="20" id="z6w-Ql-WoR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="deleteBtn" destination="1nU-JS-Oq2" id="Eo9-kP-rgi"/>
+                <outlet property="historyTitleLbl" destination="2lz-fr-BRe" id="eri-EP-xkX"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="144.64285714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="gobackward" catalog="system" width="58" height="64"/>
+        <image name="xmark" catalog="system" width="64" height="56"/>
+    </resources>
+</document>

@@ -8,23 +8,17 @@
 import UIKit
 
 class InfoVC: UIViewController {
-    
-    @IBOutlet weak var showBtn: UIButton!
-    @IBOutlet weak var theaterBtn: UIButton!
-    
-  
-    
+
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var sortBtn: RoundAndShadowButton!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationBarTitleView()
+        performSegue(withIdentifier: "InfoToDetail", sender: nil)
     }
-    
-    @IBAction func whenTouchedShowBtn(_ sender: UIButton) {
-    
-    
-    }
-    @IBAction func whenTouchedTheaterBtn(_ sender: UIButton) {
-        
-    }
+
 }
 
 

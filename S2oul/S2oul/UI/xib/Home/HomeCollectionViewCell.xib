@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Seoulnamsan_B.otf">
+            <string>SeN-CB</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeCollectionViewCell" id="gTV-IL-0wX" customClass="HomeCollectionViewCell" customModule="S2oul" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TqI-tp-BF0">
+                        <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TheaterName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uxn-Sh-K8B">
+                                <rect key="frame" x="88" y="209" width="80.5" height="15"/>
+                                <fontDescription key="fontDescription" name="SeN-CB" family="SeoulNamsan CB" pointSize="15"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Uxn-Sh-K8B" secondAttribute="bottom" constant="32" id="J60-S0-HQ9"/>
+                            <constraint firstItem="Uxn-Sh-K8B" firstAttribute="centerX" secondItem="TqI-tp-BF0" secondAttribute="centerX" id="hIh-8e-gwK"/>
+                            <constraint firstAttribute="height" constant="256" id="syq-gX-zju"/>
+                            <constraint firstAttribute="width" constant="256" id="z3A-P2-8Gl"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OvC-s5-I1X">
+                        <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rg2-5G-Dnl" customClass="RoundImageView" customModule="S2oul" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Rg2-5G-Dnl" secondAttribute="height" id="B7K-FW-aUE"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Rg2-5G-Dnl" secondAttribute="trailing" id="RAZ-Kc-122"/>
+                            <constraint firstItem="Rg2-5G-Dnl" firstAttribute="centerY" secondItem="OvC-s5-I1X" secondAttribute="centerY" id="a8d-Vt-i0y"/>
+                            <constraint firstItem="Rg2-5G-Dnl" firstAttribute="leading" secondItem="OvC-s5-I1X" secondAttribute="leading" id="jUC-nj-Oeb"/>
+                            <constraint firstAttribute="width" constant="256" id="pOR-ul-wk7"/>
+                            <constraint firstAttribute="height" constant="256" id="vnm-g1-FE2"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="TqI-tp-BF0" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="TPu-ZV-2sc"/>
+                <constraint firstItem="OvC-s5-I1X" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="TRG-XL-R4q"/>
+                <constraint firstItem="TqI-tp-BF0" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="eqj-Kp-01S"/>
+                <constraint firstItem="OvC-s5-I1X" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="rMB-eu-FP2"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="backConstraintY" destination="eqj-Kp-01S" id="YFf-iy-6oc"/>
+                <outlet property="backContainerView" destination="TqI-tp-BF0" id="m17-p0-sx5"/>
+                <outlet property="frontConstraintY" destination="TRG-XL-R4q" id="c1z-LX-h8B"/>
+                <outlet property="frontContainerView" destination="OvC-s5-I1X" id="HYx-lR-GUb"/>
+                <outlet property="theaterImgView" destination="Rg2-5G-Dnl" id="Odv-g9-PmD"/>
+                <outlet property="theaterNameLbl" destination="Uxn-Sh-K8B" id="fXt-K2-yA2"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="144.64285714285714"/>
+        </collectionViewCell>
+    </objects>
+</document>
