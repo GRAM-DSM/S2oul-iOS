@@ -8,14 +8,12 @@
 
 import UIKit
 
-struct Color {
+extension UIColor {
     static let seoul = UIColor().hexStringToUIColor(hex: "#941E34")
     static let title = UIColor().hexStringToUIColor(hex: "#242126")
     static let subtitle = UIColor().hexStringToUIColor(hex: "#707070")
     static let unselected = UIColor().hexStringToUIColor(hex: "#000000").withAlphaComponent(0.6)
-}
 
-extension UIColor {
     func hexStringToUIColor(hex: String) -> UIColor {
         var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         if cString.hasPrefix("#") { cString.remove(at: cString.startIndex) }

@@ -9,7 +9,7 @@
 import UIKit
 
 class SearchHistoryTableViewCell: UITableViewCell {
-    @IBOutlet weak var historyTitle: UILabel!
+    @IBOutlet weak var historyTitleLbl: UILabel!
     @IBOutlet weak var deleteBtn: UIButton!
     
 

@@ -10,10 +10,10 @@ import UIKit
 
 class SearchTheaterTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var theaterName: UILabel!
-    @IBOutlet weak var theaterDistance: UILabel!
-    @IBOutlet weak var theaterLocation: UILabel!
-    @IBOutlet weak var theaterTel: UILabel!
+    @IBOutlet weak var theaterNameLbl: UILabel!
+    @IBOutlet weak var theaterDistanceLbl: UILabel!
+    @IBOutlet weak var theaterLocationLbl: UILabel!
+    @IBOutlet weak var theaterPhoneNumberLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

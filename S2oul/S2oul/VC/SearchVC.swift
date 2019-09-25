@@ -13,9 +13,9 @@ class SearchVC: UIViewController {
     typealias searchShowResult = (showName: String, theater: String)
     typealias searchTheaterRewult = (theaterName: String, theaterDistance: String, theaterLocation: String, theaterTel: String)
 
-    @IBOutlet weak var showBtn: RoundButton!
-    @IBOutlet weak var theaterBtn: RoundButton!
-    @IBOutlet weak var searchTableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+
     let searchController = UISearchController(searchResultsController: nil)
 
     var searchShowResults = [searchShowResult]()
@@ -27,46 +27,8 @@ extension SearchVC: UISearchResultsUpdating {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        showBtn.addTarget(self, action: #selector(showBtnTaps), for: .touchUpInside)
-        theaterBtn.addTarget(self, action: #selector(theaterBtnTaps), for: .touchUpInside)
+        configureNavigationBarTitleView()
         searchControllerConfigure()
-    }
-
-    @objc func showBtnTaps() {
-        if showBtn.isSelected {
-            showBtn.isSelected = false
-            showBtn.backgroundColor = UIColor.white
-            showBtn.titleLabel?.textColor = Color.unselected
-            theaterBtn.isSelected = true
-            theaterBtn.backgroundColor = Color.seoul
-            theaterBtn.titleLabel?.textColor = UIColor.white
-        } else {
-            showBtn.isSelected = true
-            showBtn.backgroundColor = Color.seoul
-            showBtn.titleLabel?.textColor = UIColor.white
-            theaterBtn.isSelected = false
-            theaterBtn.backgroundColor = UIColor.white
-            theaterBtn.titleLabel?.textColor = Color.unselected
-        }
-    }
-
-    @objc func theaterBtnTaps() {
-        if theaterBtn.isSelected {
-            theaterBtn.isSelected = false
-            theaterBtn.backgroundColor = UIColor.white
-            theaterBtn.titleLabel?.textColor = Color.unselected
-            showBtn.isSelected = true
-            showBtn.backgroundColor = Color.seoul
-            showBtn.titleLabel?.textColor = UIColor.white
-        } else {
-            theaterBtn.isSelected = true
-            theaterBtn.backgroundColor = Color.seoul
-            theaterBtn.titleLabel?.textColor = UIColor.white
-            showBtn.isSelected = false
-            showBtn.backgroundColor = UIColor.white
-            showBtn.titleLabel?.textColor = Color.unselected
-        }
     }
 
     func filterContent(for searchText: String) {
@@ -85,7 +47,7 @@ extension SearchVC: UISearchResultsUpdating {
     func getCurrentSearchState() -> SearchState{
         if searchController.searchBar.text == nil {
             return .none
-        } else if showBtn.isSelected {
+        } else if segmentedControl.selectedSegmentIndex == 0 {
             return .show
         } else {
             return .theater
@@ -95,7 +57,7 @@ extension SearchVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text {
             filterContent(for: searchText)
-            searchTableView.reloadData()
+            tableView.reloadData()
         }
     }
 

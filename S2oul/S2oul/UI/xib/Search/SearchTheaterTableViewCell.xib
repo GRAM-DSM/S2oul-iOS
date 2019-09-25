@@ -37,8 +37,8 @@
                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="theaterTel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bde-lc-4Dp">
-                        <rect key="frame" x="4" y="39" width="49" height="12"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="theaterPhoneNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bde-lc-4Dp">
+                        <rect key="frame" x="4" y="39" width="103" height="12"/>
                         <fontDescription key="fontDescription" name="SeN-CB" family="SeoulNamsan CB" pointSize="12"/>
                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -63,10 +63,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="theaterDistance" destination="Nz2-re-11H" id="W1b-7C-wzf"/>
-                <outlet property="theaterLocation" destination="tlC-8H-vJp" id="LRT-Yd-qc8"/>
-                <outlet property="theaterName" destination="UBX-Cc-dwF" id="ybq-jC-XcJ"/>
-                <outlet property="theaterTel" destination="bde-lc-4Dp" id="yoV-9M-bhr"/>
+                <outlet property="theaterDistanceLbl" destination="Nz2-re-11H" id="W1b-7C-wzf"/>
+                <outlet property="theaterLocationLbl" destination="tlC-8H-vJp" id="LRT-Yd-qc8"/>
+                <outlet property="theaterNameLbl" destination="UBX-Cc-dwF" id="ybq-jC-XcJ"/>
+                <outlet property="theaterPhoneNumberLbl" destination="bde-lc-4Dp" id="yoV-9M-bhr"/>
             </connections>
             <point key="canvasLocation" x="89.130434782608702" y="150"/>
         </tableViewCell>

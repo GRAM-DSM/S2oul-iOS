@@ -1,22 +1,22 @@
 //
-//  ShowTableViewCell.swift
+//  InfoTheaterTableViewCell.swift
 //  S2oul
 //
-//  Created by baby1234 on 21/09/2019.
+//  Created by baby1234 on 22/09/2019.
 //  Copyright © 2019 baby1234. All rights reserved.
 //
 
 import UIKit
 
-class SearchShowTableViewCell: UITableViewCell {
-    @IBOutlet weak var showNameLbl: UILabel!
+class InfoTheaterTableViewCell: UITableViewCell {
+
     @IBOutlet weak var theaterNameLbl: UILabel!
-    @IBOutlet weak var genreAndShowAgeLbl: UILabel!
-    
+    @IBOutlet weak var theaterPhoneNumberLbl: UILabel!
+    @IBOutlet weak var theaterLocationLbl: UILabel!
+    @IBOutlet weak var theaterImgView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

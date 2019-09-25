@@ -10,10 +10,10 @@ import UIKit
 
 import expanding_collection
 
-class homeCollectionViewCell: BasePageCollectionCell {
+class HomeCollectionViewCell: BasePageCollectionCell {
 
     @IBOutlet weak var theaterImgView: UIImageView!
-    @IBOutlet weak var theaterName: UILabel!
+    @IBOutlet weak var theaterNameLbl: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
