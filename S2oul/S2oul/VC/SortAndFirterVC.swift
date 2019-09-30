@@ -10,19 +10,28 @@ import UIKit
 
 class SortAndFirterVC: UIViewController {
 
+    @IBOutlet weak var sortView: UIView!
+    @IBOutlet weak var sectionView: UIView!
+    @IBOutlet weak var genreView: UIView!
+    
     @IBOutlet weak var firstGenreCollectionView: UICollectionView!
     @IBOutlet weak var secondGenreCollectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: SoulSegmentedControl!
-
+    
     let firstTitles = ["전체", "연극", "뮤지컬"]
     let secondTitles = ["콘서트/전시", "아동/가족"]
     let firstImages = ["all", "play", "musical"]
     let secondImages = ["concertAndShow", "childAndFamily"]
 
     var beforeSelectedCell: (Int, GenreCollectionViewCell?) = (1, nil)
+    var isSuperViewIsSearchVC = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if isSuperViewIsSearchVC {
+            sortView.isHidden = true
+            sectionView.isHidden = true
+        }
     }
     
 }

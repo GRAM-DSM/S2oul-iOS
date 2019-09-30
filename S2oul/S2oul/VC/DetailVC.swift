@@ -15,8 +15,6 @@ class DetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBarTitleView()
-        let vc = storyboard?.instantiateViewController(identifier: "ShowDetailVC") as! ShowDetailVC
-        detailView.addSubview(vc.view)
     }
 
 }

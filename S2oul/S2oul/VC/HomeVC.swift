@@ -25,7 +25,9 @@ class HomeVC: ExpandingViewController {
         registerCell()
         layoutConfigure()
     }
-    
+}
+
+extension HomeVC {
     private func registerCell() {
         let nib = UINib(nibName: "HomeCollectionViewCell", bundle: nil)
         collectionView?.register(nib, forCellWithReuseIdentifier: "HomeCollectionViewCell")

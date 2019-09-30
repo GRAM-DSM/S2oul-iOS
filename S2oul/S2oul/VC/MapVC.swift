@@ -15,8 +15,8 @@ class MapVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         configureNavigationBarTitleView()
+        tableView.backgroundColor = UIColor.white
     }
 
 }

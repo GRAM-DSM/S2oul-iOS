@@ -16,7 +16,7 @@ class InfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBarTitleView()
-        performSegue(withIdentifier: "InfoToDetail", sender: nil)
+        tableView.backgroundColor = UIColor.white
     }
 
 }
