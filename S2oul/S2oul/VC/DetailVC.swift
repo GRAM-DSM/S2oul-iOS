@@ -17,4 +17,9 @@ class DetailVC: UIViewController {
         configureNavigationBarTitleView()
     }
 
+
+}
+
+extension DetailVC : DetailInfoAPIProvider {
+    
 }
