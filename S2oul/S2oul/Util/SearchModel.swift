@@ -8,16 +8,16 @@
 
 import Foundation
 
-struct SearchShowInfo : Codable {
-    let showName : String
-    let theaterName : String
-    let age : String
-    let showId : String
+struct SearchShowInfo: Codable {
+    let showName: String
+    let theaterName: String
+    let age: String
+    let showId: String
 }
 
-struct SearchTheaterInfo : Codable {
-    let theaterName : String
-    let location : String
-    let phoneNumber : String
-    let theaterId : String
+struct SearchTheaterInfo: Codable {
+    let theaterName: String
+    let location: String
+    let phoneNumber: String
+    let theaterId: String
 }

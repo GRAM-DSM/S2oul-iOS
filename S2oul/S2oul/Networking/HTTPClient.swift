@@ -13,7 +13,7 @@ protocol httpClientProvider {
     func get(url: String) -> DataRequest
 }
 
-final class HTTPClient : httpClientProvider {
+final class HTTPClient: httpClientProvider {
     let baseURL = " "
     
     func get(url: String) -> DataRequest {

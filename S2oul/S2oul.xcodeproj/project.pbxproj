@@ -10,7 +10,7 @@
 		37202920233854FB00AE7E5D /* AShowInMotionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3720291E233854FB00AE7E5D /* AShowInMotionCollectionViewCell.swift */; };
 		37202921233854FB00AE7E5D /* AShowInMotionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3720291F233854FB00AE7E5D /* AShowInMotionCollectionViewCell.xib */; };
 		372029232338AA9500AE7E5D /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372029222338AA9500AE7E5D /* MapVC.swift */; };
-		373CC93423399F140081104E /* SortAndFirterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373CC93323399F140081104E /* SortAndFirterVC.swift */; };
+		373CC93423399F140081104E /* SortAndGenreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373CC93323399F140081104E /* SortAndGenreVC.swift */; };
 		374E9FF523390B130081E116 /* SoulSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374E9FF423390B130081E116 /* SoulSegmentedControl.swift */; };
 		3753A72623324B530075592C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753A72523324B530075592C /* AppDelegate.swift */; };
 		3753A72B23324B530075592C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3753A72923324B530075592C /* Main.storyboard */; };
@@ -62,6 +62,7 @@
 		D65FECFD235074980084557D /* SoulURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65FECFC235074980084557D /* SoulURL.swift */; };
 		D65FECFF235074AC0084557D /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65FECFE235074AC0084557D /* HTTPClient.swift */; };
 		D6A65D14233354C0003BE2A1 /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A65D13233354C0003BE2A1 /* InfoVC.swift */; };
+		D6A7C167235F46E60072712F /* SoulDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A7C166235F46E60072712F /* SoulDelegate.swift */; };
 		D6EEA8222350C681000111B1 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EEA8212350C681000111B1 /* Provider.swift */; };
 		D6EEA8242350C79E000111B1 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EEA8232350C79E000111B1 /* Genre.swift */; };
 		D6EEA8282350CB20000111B1 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EEA8272350CB20000111B1 /* InfoModel.swift */; };
@@ -75,7 +76,7 @@
 		3720291E233854FB00AE7E5D /* AShowInMotionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AShowInMotionCollectionViewCell.swift; sourceTree = "<group>"; };
 		3720291F233854FB00AE7E5D /* AShowInMotionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AShowInMotionCollectionViewCell.xib; sourceTree = "<group>"; };
 		372029222338AA9500AE7E5D /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
-		373CC93323399F140081104E /* SortAndFirterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortAndFirterVC.swift; sourceTree = "<group>"; };
+		373CC93323399F140081104E /* SortAndGenreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortAndGenreVC.swift; sourceTree = "<group>"; };
 		374E9FF423390B130081E116 /* SoulSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoulSegmentedControl.swift; sourceTree = "<group>"; };
 		3753A72223324B530075592C /* S2oul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = S2oul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3753A72523324B530075592C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +131,7 @@
 		D65FECFC235074980084557D /* SoulURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoulURL.swift; sourceTree = "<group>"; };
 		D65FECFE235074AC0084557D /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		D6A65D13233354C0003BE2A1 /* InfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoVC.swift; path = S2oul/UI/InfoVC.swift; sourceTree = SOURCE_ROOT; };
+		D6A7C166235F46E60072712F /* SoulDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoulDelegate.swift; sourceTree = "<group>"; };
 		D6B9E6832351A5EB00CB1C00 /* S2oul.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = S2oul.entitlements; sourceTree = "<group>"; };
 		D6EEA8212350C681000111B1 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		D6EEA8232350C79E000111B1 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
@@ -234,7 +236,7 @@
 				379C6B482337D9B40071D552 /* ShowDetailVC.swift */,
 				379C6B4A2337D9C70071D552 /* TheaterDetailVC.swift */,
 				372029222338AA9500AE7E5D /* MapVC.swift */,
-				373CC93323399F140081104E /* SortAndFirterVC.swift */,
+				373CC93323399F140081104E /* SortAndGenreVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -247,6 +249,7 @@
 				379C6B422337D3000071D552 /* Base.swift */,
 				374E9FF423390B130081E116 /* SoulSegmentedControl.swift */,
 				D6EEA8232350C79E000111B1 /* Genre.swift */,
+				D6A7C166235F46E60072712F /* SoulDelegate.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -522,7 +525,7 @@
 			files = (
 				37202920233854FB00AE7E5D /* AShowInMotionCollectionViewCell.swift in Sources */,
 				377C30812336114800547904 /* SearchVC.swift in Sources */,
-				373CC93423399F140081104E /* SortAndFirterVC.swift in Sources */,
+				373CC93423399F140081104E /* SortAndGenreVC.swift in Sources */,
 				D65FECFD235074980084557D /* SoulURL.swift in Sources */,
 				D6EEA82C2350CEB9000111B1 /* MapModel.swift in Sources */,
 				D6A65D14233354C0003BE2A1 /* InfoVC.swift in Sources */,
@@ -549,6 +552,7 @@
 				D65FECFF235074AC0084557D /* HTTPClient.swift in Sources */,
 				379C6B432337D3000071D552 /* Base.swift in Sources */,
 				377C30852336160800547904 /* SearchHistoryTableViewCell.swift in Sources */,
+				D6A7C167235F46E60072712F /* SoulDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

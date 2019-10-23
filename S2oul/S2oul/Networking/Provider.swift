@@ -11,21 +11,21 @@ import Foundation
 
 
 protocol InfoAPIProvider {
-    func getShowEndDateInfo(genre : Genre)
-    func getShowAlphabetInfo(genre : Genre)
-    func getTheaterAlphabetInfo(genre : Genre)
+    func getShowEndDateInfo(genre: Genre)
+    func getShowAlphabetInfo(genre: Genre)
+    func getTheaterAlphabetInfo(genre: Genre)
 }
 
 protocol DetailInfoAPIProvider {
-    func showDetailInfo(showId : String)
-    func theaterDetailInfo(theaterId : String)
+    func showDetailInfo(showId: String)
+    func theaterDetailInfo(theaterId: String)
 }
 
 protocol MapAPIProvider {
-    func map(latAndLng : String)
+    func map(latAndLng: String)
 }
 
 protocol SearchAPIProvider {
-    func searchShow(genre : Genre)
-    func searchTheater(genre : Genre)
+    func searchShow(genre: Genre)
+    func searchTheater(genre: Genre)
 }

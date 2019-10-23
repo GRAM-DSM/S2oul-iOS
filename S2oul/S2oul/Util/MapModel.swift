@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct AroundTheaterInfo : Codable {
-    let theaterImage : String
-    let theaterName : String
-    let location : String
-    let latitude : String
-    let longitude : String 
-    let phoneNumber : String
-    let theaterId : String
+struct AroundTheaterInfo: Codable {
+    let theaterImage: String
+    let theaterName: String
+    let location: String
+    let latitude: String
+    let longitude: String
+    let phoneNumber: String
+    let theaterId: String
 }

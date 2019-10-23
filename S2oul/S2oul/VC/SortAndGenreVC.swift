@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SortAndFirterVC: UIViewController {
+class SortAndGenreVC: UIViewController {
 
     @IBOutlet weak var sortView: UIView!
     @IBOutlet weak var sectionView: UIView!
@@ -25,7 +25,10 @@ class SortAndFirterVC: UIViewController {
 
     var beforeSelectedCell: (Int, GenreCollectionViewCell?) = (1, nil)
     var isSuperViewIsSearchVC = false
-
+    
+    var selectedGenre : String
+    var delegate : SortAndGenreDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if isSuperViewIsSearchVC {
@@ -34,9 +37,28 @@ class SortAndFirterVC: UIViewController {
         }
     }
     
+    @IBAction func sortAndGenreAdjustBtn(_ sender: UIButton) {
+        switch selectedGenre {
+        case "전체":
+            delegate?.getFilterGenre(result: .all)
+        case "연극":
+            delegate?.getFilterGenre(result: .play)
+        case "뮤지컬":
+            delegate?.getFilterGenre(result: .musical)
+        case "콘서트/전시":
+            delegate?.getFilterGenre(result: .concertAndShow)
+        case "아동/가족":
+            delegate?.getFilterGenre(result: .childAndFamily)
+        default:
+            delegate?.getFilterGenre(result: .all)
+        }
+        delegate?.getSortIndex(result: segmentedControl.selectedSegmentIndex)
+        self.navigationController?.popViewController(animated: false)
+    }
 }
 
-extension SortAndFirterVC: UICollectionViewDataSource, UICollectionViewDelegate {
+
+extension SortAndGenreVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return collectionView == firstGenreCollectionView ? 3 : 2
     }
@@ -61,9 +83,11 @@ extension SortAndFirterVC: UICollectionViewDataSource, UICollectionViewDelegate 
         if collectionView == firstGenreCollectionView {
             cell.changeFirstCellColor(tintColor: UIColor.white, backgroundColor: UIColor.seoul)
             beforeSelectedCell.0 = 1
+            selectedGenre = cell.firstTitleLbl.text!
         } else {
             cell.changeSecondCellColor(tintColor: UIColor.white, backgroundColor: UIColor.seoul)
             beforeSelectedCell.0 = 2
+            selectedGenre = cell.secondTitleLbl.text!
         }
 
         beforeSelectedCell.1 = cell

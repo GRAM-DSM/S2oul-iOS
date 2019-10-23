@@ -8,19 +8,19 @@
 
 import Foundation
 
-struct ShowInfo : Codable {
-    let showImage : String
-    let showName : String
-    let period : String
-    let theaterName : String
-    let showAge : String
-    let showId : String
+struct ShowInfo: Codable {
+    let showImage: String
+    let showName: String
+    let period: String
+    let theaterName: String
+    let showAge: String
+    let showId: String
 }
 
-struct TheaterInfo : Codable {
-    let theaterImage : String
-    let theaterName : String
-    let phoneNumber : String
-    let location : String
-    let theaterId : String
+struct TheaterInfo: Codable {
+    let theaterImage: String
+    let theaterName: String
+    let phoneNumber: String
+    let location: String
+    let theaterId: String
 }
