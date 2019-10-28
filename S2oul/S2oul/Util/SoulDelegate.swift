@@ -9,6 +9,9 @@
 import Foundation
 
 protocol SortAndGenreDelegate {
-    func getSortIndex(result: Int)
-    func getFilterGenre(result: Genre)
+    func getSortIndexAndFilterGenre(sort index: Int, filter genre: Genre)
+}
+
+protocol DetailInfoDelegate {
+    func getId(id: String)
 }

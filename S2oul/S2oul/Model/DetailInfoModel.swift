@@ -14,6 +14,7 @@ struct ShowDetailInfo: Codable {
     let theaterImage: String
     let showName: String
     let period: String
+    let age: String
     let cost: String
     let runningTime: String
     let link: String

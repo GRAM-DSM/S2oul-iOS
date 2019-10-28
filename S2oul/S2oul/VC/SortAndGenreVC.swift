@@ -18,41 +18,36 @@ class SortAndGenreVC: UIViewController {
     @IBOutlet weak var secondGenreCollectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: SoulSegmentedControl!
     
-    let firstTitles = ["전체", "연극", "뮤지컬"]
-    let secondTitles = ["콘서트/전시", "아동/가족"]
-    let firstImages = ["all", "play", "musical"]
-    let secondImages = ["concertAndShow", "childAndFamily"]
+    private let firstTitles = ["전체", "연극", "뮤지컬"]
+    private let secondTitles = ["콘서트/전시", "아동/가족"]
+    private let firstImages = ["all", "play", "musical"]
+    private let secondImages = ["concertAndShow", "childAndFamily"]
 
-    var beforeSelectedCell: (Int, GenreCollectionViewCell?) = (1, nil)
-    var isSuperViewIsSearchVC = false
+    private var beforeSelectedCell: (Int, GenreCollectionViewCell?) = (1, nil)
     
-    var selectedGenre : String
-    var delegate : SortAndGenreDelegate?
+    private var selectedGenre = "전체"
+
+    var delegate: SortAndGenreDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if isSuperViewIsSearchVC {
-            sortView.isHidden = true
-            sectionView.isHidden = true
-        }
     }
     
     @IBAction func sortAndGenreAdjustBtn(_ sender: UIButton) {
         switch selectedGenre {
         case "전체":
-            delegate?.getFilterGenre(result: .all)
+            delegate?.getSortIndexAndFilterGenre(sort: segmentedControl.selectedSegmentIndex, filter: .all)
         case "연극":
-            delegate?.getFilterGenre(result: .play)
+            delegate?.getSortIndexAndFilterGenre(sort: segmentedControl.selectedSegmentIndex, filter: .play)
         case "뮤지컬":
-            delegate?.getFilterGenre(result: .musical)
+            delegate?.getSortIndexAndFilterGenre(sort: segmentedControl.selectedSegmentIndex, filter: .musical)
         case "콘서트/전시":
-            delegate?.getFilterGenre(result: .concertAndShow)
+            delegate?.getSortIndexAndFilterGenre(sort: segmentedControl.selectedSegmentIndex, filter: .concertAndShow)
         case "아동/가족":
-            delegate?.getFilterGenre(result: .childAndFamily)
+            delegate?.getSortIndexAndFilterGenre(sort: segmentedControl.selectedSegmentIndex, filter: .childAndFamily)
         default:
-            delegate?.getFilterGenre(result: .all)
+            delegate?.getSortIndexAndFilterGenre(sort: segmentedControl.selectedSegmentIndex, filter: .all)
         }
-        delegate?.getSortIndex(result: segmentedControl.selectedSegmentIndex)
         self.navigationController?.popViewController(animated: false)
     }
 }

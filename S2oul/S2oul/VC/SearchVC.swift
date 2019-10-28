@@ -10,16 +10,16 @@ import UIKit
 
 class SearchVC: UIViewController {
 
-    typealias searchShowResult = (showName: String, theater: String)
-    typealias searchTheaterRewult = (theaterName: String, theaterDistance: String, theaterLocation: String, theaterPhoneNumber: String)
+    typealias SearchShowResult = (showName: String, theater: String)
+    typealias SearchTheaterResult = (theaterName: String, theaterDistance: String, theaterLocation: String, theaterPhoneNumber: String)
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
 
     let searchController = UISearchController(searchResultsController: nil)
 
-    var searchShowResults = [searchShowResult]()
-    var searchTheaterResults = [searchTheaterRewult]()
+    var searchShowResults = [SearchShowResult]()
+    var searchTheaterResults = [SearchTheaterResult]()
     var searchHistory = [String]()
 
     override func viewDidLoad() {
@@ -27,13 +27,6 @@ class SearchVC: UIViewController {
         configureNavigationBarTitleView()
         searchControllerConfigure()
         tableView.backgroundColor = UIColor.white
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SearchToSortAndFilter" {
-            guard let vc = segue.destination as? SortAndFirterVC else { return }
-            vc.isSuperViewIsSearchVC = true
-        }
     }
 }
 
@@ -52,7 +45,7 @@ extension SearchVC: UISearchResultsUpdating {
         searchController.searchBar.setValue("취소", forKey: "cancelButtonText")
     }
 
-    private func getCurrentSearchState() -> SearchState{
+    private func getCurrentSearchState() -> SearchState {
         if searchController.searchBar.text == nil {
             return .none
         } else if segmentedControl.selectedSegmentIndex == 0 {
