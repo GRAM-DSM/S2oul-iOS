@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Genre : String {
+enum Genre: String {
     case all
     case musical
     case concertAndShow

@@ -24,5 +24,11 @@ class InfoTheaterTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
+    func configure(data: TheaterInfo) {
+        self.theaterImgView.kf.setImage(with: URL(string: data.theaterImage))
+        self.theaterNameLbl.text = data.theaterName
+        self.theaterPhoneNumberLbl.text = data.phoneNumber
+        self.theaterLocationLbl.text = data.location
+    }
 }

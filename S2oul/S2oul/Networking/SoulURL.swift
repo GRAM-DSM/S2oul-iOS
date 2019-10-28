@@ -9,14 +9,14 @@
 import Foundation
 
 enum SoulURL {
-    case showEndDate(genre : String)
-    case showAlphabet(genre : String)
-    case theaterAlphabet(genre : String)
-    case detailInfoShow(showId : String)
-    case detailInfoTheater(theaterId : String)
-    case map(latAndLng : String)
-    case searchShow(genre : String)
-    case searchTheater(genre : String)
+    case showEndDate(genre: String)
+    case showAlphabet(genre: String)
+    case theaterAlphabet(genre: String)
+    case detailInfoShow(showId: String)
+    case detailInfoTheater(theaterId: String)
+    case map(latAndLng: String)
+    case searchShow(genre: String)
+    case searchTheater(genre: String)
     
     func getPath() -> String {
         switch self {

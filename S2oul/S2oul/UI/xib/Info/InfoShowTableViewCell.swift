@@ -27,5 +27,13 @@ class InfoShowTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+
+    func configure(data: ShowInfo) {
+        self.showImgView.kf.setImage(with: URL(string: data.showImage))
+        self.showNameLbl.text = data.showName
+        self.showPeriodLbl.text = data.period
+        self.theaterNameLbl.text = data.theaterName
+        self.showAgeLbl.text = data.showImage
+    }
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SortAndFirterVC: UIViewController {
+class SortAndGenreVC: UIViewController {
 
     @IBOutlet weak var sortView: UIView!
     @IBOutlet weak var sectionView: UIView!
@@ -18,25 +18,42 @@ class SortAndFirterVC: UIViewController {
     @IBOutlet weak var secondGenreCollectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: SoulSegmentedControl!
     
-    let firstTitles = ["전체", "연극", "뮤지컬"]
-    let secondTitles = ["콘서트/전시", "아동/가족"]
-    let firstImages = ["all", "play", "musical"]
-    let secondImages = ["concertAndShow", "childAndFamily"]
+    private let firstTitles = ["전체", "연극", "뮤지컬"]
+    private let secondTitles = ["콘서트/전시", "아동/가족"]
+    private let firstImages = ["all", "play", "musical"]
+    private let secondImages = ["concertAndShow", "childAndFamily"]
 
-    var beforeSelectedCell: (Int, GenreCollectionViewCell?) = (1, nil)
-    var isSuperViewIsSearchVC = false
+    private var beforeSelectedCell: (Int, GenreCollectionViewCell?) = (1, nil)
+    
+    private var selectedGenre = "전체"
 
+    var delegate: SortAndGenreDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if isSuperViewIsSearchVC {
-            sortView.isHidden = true
-            sectionView.isHidden = true
-        }
     }
     
+    @IBAction func sortAndGenreAdjustBtn(_ sender: UIButton) {
+        switch selectedGenre {
+        case "전체":
+            delegate?.getSortIndexAndFilterGenre(sort: segmentedControl.selectedSegmentIndex, filter: .all)
+        case "연극":
+            delegate?.getSortIndexAndFilterGenre(sort: segmentedControl.selectedSegmentIndex, filter: .play)
+        case "뮤지컬":
+            delegate?.getSortIndexAndFilterGenre(sort: segmentedControl.selectedSegmentIndex, filter: .musical)
+        case "콘서트/전시":
+            delegate?.getSortIndexAndFilterGenre(sort: segmentedControl.selectedSegmentIndex, filter: .concertAndShow)
+        case "아동/가족":
+            delegate?.getSortIndexAndFilterGenre(sort: segmentedControl.selectedSegmentIndex, filter: .childAndFamily)
+        default:
+            delegate?.getSortIndexAndFilterGenre(sort: segmentedControl.selectedSegmentIndex, filter: .all)
+        }
+        self.navigationController?.popViewController(animated: false)
+    }
 }
 
-extension SortAndFirterVC: UICollectionViewDataSource, UICollectionViewDelegate {
+
+extension SortAndGenreVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return collectionView == firstGenreCollectionView ? 3 : 2
     }
@@ -61,9 +78,11 @@ extension SortAndFirterVC: UICollectionViewDataSource, UICollectionViewDelegate 
         if collectionView == firstGenreCollectionView {
             cell.changeFirstCellColor(tintColor: UIColor.white, backgroundColor: UIColor.seoul)
             beforeSelectedCell.0 = 1
+            selectedGenre = cell.firstTitleLbl.text!
         } else {
             cell.changeSecondCellColor(tintColor: UIColor.white, backgroundColor: UIColor.seoul)
             beforeSelectedCell.0 = 2
+            selectedGenre = cell.secondTitleLbl.text!
         }
 
         beforeSelectedCell.1 = cell
