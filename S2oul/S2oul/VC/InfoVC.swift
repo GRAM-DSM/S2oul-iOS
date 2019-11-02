@@ -10,59 +10,64 @@ import Alamofire
 import Kingfisher
 
 class InfoVC : UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sortBtn: RoundAndShadowButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     private let httpClient = HTTPClient()
-
+    
     private var showInfoArr = [ShowInfo]()
     private var theaterInfoArr = [TheaterInfo]()
-    private var sortIndex = 0
-    private var filterGenre = Genre.all
-
-    var delegate: DetailInfoDelegate?
-
+    private var sort = Sort.alphabetical
+    private var genre = Genre.all
+    
+    var detailDelegate: DetailInfoDelegate?
+    var genreDelegate: SortAndGenreDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBarTitleView()
         tableView.backgroundColor = UIColor.white
         tableView.register(UINib(nibName: "InfoShowTableViewCell", bundle: nil), forCellReuseIdentifier: "InfoShowTableViewCell")
         tableView.register(UINib(nibName: "InfoTheaterTableViewCell", bundle: nil), forCellReuseIdentifier: "InfoTheaterTableViewCell")
+        showOrTheaterSegmentedControlIsChanged(segmentedControl)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? SortAndGenreVC {
             vc.delegate = self
+            genreDelegate = vc
+            genreDelegate?.getSortIndexAndFilterGenre(sort: sort, genre: genre)
         }
     }
     
     @IBAction func showOrTheaterSegmentedControlIsChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            if sortIndex == 0 {
-                getShowEndDateInfo(genre: filterGenre)
-            } else {
-                getShowAlphabetInfo(genre: filterGenre)
+            switch sort {
+            case .alphabetical:
+                getShowAlphabetInfo()
+            case .endDate:
+                getShowEndDateInfo()
             }
             sortBtn.isHidden = false
         } else {
-            getTheaterAlphabetInfo(genre: filterGenre)
+            getTheaterAlphabetInfo()
             sortBtn.isHidden = true
         }
     }
-
+    
 }
 
 extension InfoVC : SortAndGenreDelegate {
-    func getSortIndexAndFilterGenre(sort index: Int, filter genre: Genre) {
-        sortIndex = index
-        filterGenre = genre
+    func getSortIndexAndFilterGenre(sort: Sort, genre: Genre) {
+        self.sort = sort
+        self.genre = genre
     }
 }
 
 extension InfoVC : InfoAPIProvider {
-    func getShowEndDateInfo(genre: Genre) {
+    func getShowEndDateInfo() {
         httpClient.get(url: SoulURL.showEndDate(genre: genre.rawValue).getPath())
             .responseData { (data) in
                 guard let data = data.data, let response = try? JSONDecoder().decode([ShowInfo].self, from: data) else { return }
@@ -70,10 +75,10 @@ extension InfoVC : InfoAPIProvider {
                     self.showInfoArr = response
                     self.tableView.reloadData()
                 }
-            }
+        }
     }
     
-    func getShowAlphabetInfo(genre: Genre) {
+    func getShowAlphabetInfo() {
         httpClient.get(url: SoulURL.showAlphabet(genre: genre.rawValue).getPath())
             .responseData { (data) in
                 guard let data = data.data, let response = try? JSONDecoder().decode([ShowInfo].self, from: data) else { return }
@@ -84,21 +89,20 @@ extension InfoVC : InfoAPIProvider {
         }
     }
     
-    func getTheaterAlphabetInfo(genre: Genre) {
-        httpClient.get(url: SoulURL.theaterAlphabet(genre: genre.rawValue).getPath())
+    func getTheaterAlphabetInfo() {
+        httpClient.get(url: SoulURL.theaterAlphabet.getPath())
             .responseData { (data) in
                 guard let data = data.data, let response = try? JSONDecoder().decode([TheaterInfo].self, from: data) else { return }
-                    DispatchQueue.main.async {
-                        self.theaterInfoArr = response
-                        self.tableView.reloadData()
-                    }
-            }
+                DispatchQueue.main.async {
+                    self.theaterInfoArr = response
+                    self.tableView.reloadData()
+                }
+        }
     }
     
 }
 
 extension InfoVC: UITableViewDelegate, UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -119,22 +123,22 @@ extension InfoVC: UITableViewDelegate, UITableViewDataSource {
         }
         
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if segmentedControl.selectedSegmentIndex == 0 {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "ShowDetailVC") as! ShowDetailVC
-            delegate = vc
-            delegate?.getId(id: showInfoArr[indexPath.row].showId)
+            detailDelegate = vc
+            detailDelegate?.getId(id: showInfoArr[indexPath.row].showId)
             self.navigationController?.pushViewController(vc, animated: false)
         } else {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "TheaterDetailVC") as! TheaterDetailVC
-            delegate = vc
-            delegate?.getId(id: theaterInfoArr[indexPath.row].theaterId)
+            detailDelegate = vc
+            detailDelegate?.getId(id: theaterInfoArr[indexPath.row].theaterId)
             self.navigationController?.pushViewController(vc, animated: false)
         }
     }
 }
 
-    
+
 
 

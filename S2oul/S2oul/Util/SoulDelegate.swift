@@ -9,7 +9,7 @@
 import Foundation
 
 protocol SortAndGenreDelegate {
-    func getSortIndexAndFilterGenre(sort index: Int, filter genre: Genre)
+    func getSortIndexAndFilterGenre(sort: Sort, genre: Genre)
 }
 
 protocol DetailInfoDelegate {

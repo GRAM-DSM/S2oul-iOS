@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 extension UIViewController {
     func configureNavigationBarTitleView() {
@@ -21,5 +22,9 @@ extension UIViewController {
         imgView.layer.mask = maskLayer
 
         self.navigationItem.titleView = imgView
+    }
+
+    func showToast(message: String) {
+        Toast(text: message).show()
     }
 }

@@ -10,6 +10,8 @@ import UIKit
 
 class SortAndGenreVC: UIViewController {
 
+    typealias SelectedGenre = (tableView: Int, index: Int, cell: GenreCollectionViewCell?)
+
     @IBOutlet weak var sortView: UIView!
     @IBOutlet weak var sectionView: UIView!
     @IBOutlet weak var genreView: UIView!
@@ -23,35 +25,34 @@ class SortAndGenreVC: UIViewController {
     private let firstImages = ["all", "play", "musical"]
     private let secondImages = ["concertAndShow", "childAndFamily"]
 
-    private var beforeSelectedCell: (Int, GenreCollectionViewCell?) = (1, nil)
+    private var selectedGenre: SelectedGenre = (0, 0, nil)
+    private var selectedSort = 0
     
-    private var selectedGenre = "전체"
-
     var delegate: SortAndGenreDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        segmentedControl.selectedSegmentIndex = selectedSort
     }
     
     @IBAction func sortAndGenreAdjustBtn(_ sender: UIButton) {
-        switch selectedGenre {
-        case "전체":
-            delegate?.getSortIndexAndFilterGenre(sort: segmentedControl.selectedSegmentIndex, filter: .all)
-        case "연극":
-            delegate?.getSortIndexAndFilterGenre(sort: segmentedControl.selectedSegmentIndex, filter: .play)
-        case "뮤지컬":
-            delegate?.getSortIndexAndFilterGenre(sort: segmentedControl.selectedSegmentIndex, filter: .musical)
-        case "콘서트/전시":
-            delegate?.getSortIndexAndFilterGenre(sort: segmentedControl.selectedSegmentIndex, filter: .concertAndShow)
-        case "아동/가족":
-            delegate?.getSortIndexAndFilterGenre(sort: segmentedControl.selectedSegmentIndex, filter: .childAndFamily)
-        default:
-            delegate?.getSortIndexAndFilterGenre(sort: segmentedControl.selectedSegmentIndex, filter: .all)
-        }
-        self.navigationController?.popViewController(animated: false)
+        delegate?.getSortIndexAndFilterGenre(sort: Sort.getGenre(index: segmentedControl.selectedSegmentIndex),
+                                             genre: Genre.getGenre(index: selectedGenre.index))
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
+extension SortAndGenreVC: SortAndGenreDelegate {
+    func getSortIndexAndFilterGenre(sort: Sort, genre: Genre) {
+        switch genre {
+        case .all, .play, .musical:
+            selectedGenre = (0, genre.getIndex(), nil)
+        default:
+            selectedGenre = (1, genre.getIndex(), nil)
+        }
+        selectedSort = sort.getIndex()
+    }
+}
 
 extension SortAndGenreVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -64,10 +65,17 @@ extension SortAndGenreVC: UICollectionViewDataSource, UICollectionViewDelegate {
 
         if collectionView == firstGenreCollectionView {
             cell.firstConfigure(img: firstImages[index], title: firstTitles[index])
+            if selectedGenre.index == index {
+                cell.changeFirstCellColor(tintColor: UIColor.white, backgroundColor: UIColor.seoul)
+                selectedGenre.cell = cell
+            }
         } else {
             cell.secondConfigure(img: secondImages[index], title: secondTitles[index])
+            if selectedGenre.index == index + 3 {
+                cell.changeSecondCellColor(tintColor: UIColor.white, backgroundColor: UIColor.seoul)
+                selectedGenre.cell = cell
+            }
         }
-
         return cell
     }
 
@@ -77,21 +85,19 @@ extension SortAndGenreVC: UICollectionViewDataSource, UICollectionViewDelegate {
 
         if collectionView == firstGenreCollectionView {
             cell.changeFirstCellColor(tintColor: UIColor.white, backgroundColor: UIColor.seoul)
-            beforeSelectedCell.0 = 1
-            selectedGenre = cell.firstTitleLbl.text!
+            selectedGenre.tableView = 0
+            selectedGenre.index = indexPath.row
         } else {
             cell.changeSecondCellColor(tintColor: UIColor.white, backgroundColor: UIColor.seoul)
-            beforeSelectedCell.0 = 2
-            selectedGenre = cell.secondTitleLbl.text!
+            selectedGenre.tableView = 1
+            selectedGenre.index = indexPath.row + 3
         }
-
-        beforeSelectedCell.1 = cell
-
+        selectedGenre.cell = cell
     }
 
     private func changeBeforeSelectedCellColor() {
-        if let selectedCell = beforeSelectedCell.1 {
-            if beforeSelectedCell.0 == 1 {
+        if let selectedCell = selectedGenre.cell {
+            if selectedGenre.tableView == 0 {
                 selectedCell.changeFirstCellColor(tintColor: UIColor.seoul, backgroundColor: UIColor.white)
             } else {
                 selectedCell.changeSecondCellColor(tintColor: UIColor.seoul, backgroundColor: UIColor.white)

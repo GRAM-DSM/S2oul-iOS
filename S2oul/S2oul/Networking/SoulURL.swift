@@ -11,12 +11,12 @@ import Foundation
 enum SoulURL {
     case showEndDate(genre: String)
     case showAlphabet(genre: String)
-    case theaterAlphabet(genre: String)
+    case theaterAlphabet
     case detailInfoShow(showId: String)
     case detailInfoTheater(theaterId: String)
     case map(latAndLng: String)
-    case searchShow(genre: String)
-    case searchTheater(genre: String)
+    case searchShow(search: String)
+    case searchTheater(search: String)
     
     func getPath() -> String {
         switch self {
@@ -24,18 +24,18 @@ enum SoulURL {
             return "/Info/showEndDate/\(genre)"
         case .showAlphabet(let genre):
             return "/Info/showAlphabet/\(genre)"
-        case .theaterAlphabet(let genre):
-            return "/Info/theaterAlphabet/\(genre)"
+        case .theaterAlphabet:
+            return "/Info/theaterAlphabet"
         case .detailInfoShow(let showId):
-            return "/detailInfo/show/showId\(showId)"
+            return "/detailInfo/show/\(showId)"
         case .detailInfoTheater(let theaterId):
-            return "/detailInfo/theater/theaterId\(theaterId)"
+            return "/detailInfo/theater/\(theaterId)"
         case .map(let latAndLng):
             return "/map/\(latAndLng)"
-        case .searchShow(let genre):
-            return "/searchShow/\(genre)"
-        case .searchTheater(let genre):
-            return "/searchTheater/\(genre)"
+        case .searchShow(let search):
+            return "/searchShow/\(search)"
+        case .searchTheater(let search):
+            return "/searchTheater/\(search)"
         }
     }
 }

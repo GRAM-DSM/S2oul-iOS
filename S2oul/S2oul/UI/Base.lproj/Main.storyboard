@@ -60,7 +60,7 @@
                                     <action selector="descriptionBtnAction:" destination="sIe-U7-U2e" eventType="touchUpInside" id="o8C-Zt-1Sb"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C69-2m-8Mq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C69-2m-8Mq">
                                 <rect key="frame" x="132" y="224" width="34" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SeN-CL" family="SeoulNamsan CL" pointSize="17"/>
@@ -314,6 +314,10 @@
                                 <rect key="frame" x="0.0" y="67" width="414" height="658"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="J0F-7o-IkB" id="TZG-Ve-57P"/>
+                                    <outlet property="delegate" destination="J0F-7o-IkB" id="oIe-te-X2h"/>
+                                </connections>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DhL-wc-hpf" customClass="SoulSegmentedControl" customModule="S2oul" customModuleProvider="target">
                                 <rect key="frame" x="80" y="16" width="254" height="32"/>
@@ -322,13 +326,24 @@
                                     <segment title="소극장"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" red="0.58039215690000001" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="segmentedControlAction:" destination="J0F-7o-IkB" eventType="valueChanged" id="6s6-jd-4Qf"/>
+                                </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최근검색어가 없습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AC0-gs-SeF">
+                                <rect key="frame" x="122.66666666666669" y="352.66666666666669" width="169" height="20"/>
+                                <fontDescription key="fontDescription" name="SeN-CEB" family="SeoulNamsan CEB" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="DhL-wc-hpf" secondAttribute="trailing" constant="80" id="8Bf-3Y-yIo"/>
                             <constraint firstItem="DhL-wc-hpf" firstAttribute="leading" secondItem="jQm-WN-Mog" secondAttribute="leading" constant="80" id="Fak-wt-y0q"/>
+                            <constraint firstItem="AC0-gs-SeF" firstAttribute="centerY" secondItem="jQm-WN-Mog" secondAttribute="centerY" id="HQa-iI-5sO"/>
                             <constraint firstItem="hbj-qE-KuT" firstAttribute="trailing" secondItem="p0N-oL-xHo" secondAttribute="trailing" id="Plr-wI-XTw"/>
+                            <constraint firstItem="AC0-gs-SeF" firstAttribute="centerX" secondItem="jQm-WN-Mog" secondAttribute="centerX" id="QpN-Yg-bdv"/>
                             <constraint firstItem="p0N-oL-xHo" firstAttribute="top" secondItem="DhL-wc-hpf" secondAttribute="bottom" constant="20" id="SAi-nN-8MR"/>
                             <constraint firstItem="p0N-oL-xHo" firstAttribute="leading" secondItem="hbj-qE-KuT" secondAttribute="leading" id="SeA-x9-TUx"/>
                             <constraint firstItem="DhL-wc-hpf" firstAttribute="top" secondItem="hbj-qE-KuT" secondAttribute="top" constant="16" id="dO1-6q-XLj"/>
@@ -339,12 +354,14 @@
                     <navigationItem key="navigationItem" id="AN1-4y-rJN">
                         <barButtonItem key="rightBarButtonItem" image="slider.horizontal.3" catalog="system" id="wIN-LK-93i">
                             <connections>
-                                <segue destination="5FS-zv-IqJ" kind="show" identifier="SearchToSortAndGenre" id="j6s-IO-nfG"/>
+                                <segue destination="5FS-zv-IqJ" kind="show" identifier="SearchToSortAndGenre" id="j0u-k0-zZa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="segmentedControl" destination="jQm-WN-Mog" id="KCm-Vm-0ua"/>
+                        <outlet property="placeholderLbl" destination="AC0-gs-SeF" id="bdd-u2-xTl"/>
+                        <outlet property="segmentedControl" destination="DhL-wc-hpf" id="fQ9-xx-QkV"/>
+                        <outlet property="sortAndGenreBtn" destination="wIN-LK-93i" id="v2U-TN-2EN"/>
                         <outlet property="tableView" destination="p0N-oL-xHo" id="Xbl-Mv-o94"/>
                     </connections>
                 </viewController>
@@ -620,7 +637,7 @@
                         <viewLayoutGuide key="safeArea" id="bPI-es-tER"/>
                     </view>
                     <navigationItem key="navigationItem" id="ybT-DZ-CN4">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="hGp-Bb-Yut">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="hGp-Bb-Yut">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="goG-kR-qTM">
                                 <rect key="frame" x="364" y="6" width="30" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -875,7 +892,7 @@
         <image name="slider.horizontal.3" catalog="system" width="64" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cZf-jc-XhI"/>
+        <segue reference="j0u-k0-zZa"/>
         <segue reference="ZhD-Wg-7gV"/>
     </inferredMetricsTieBreakers>
 </document>

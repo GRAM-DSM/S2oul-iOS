@@ -11,6 +11,7 @@ import Foundation
 struct SearchShowInfo: Codable {
     let showName: String
     let theaterName: String
+    let genre: String
     let age: String
     let showId: String
 }
