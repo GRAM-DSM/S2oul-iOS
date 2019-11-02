@@ -9,9 +9,9 @@
 import Foundation
 
 protocol InfoAPIProvider {
-    func getShowEndDateInfo(genre: Genre)
-    func getShowAlphabetInfo(genre: Genre)
-    func getTheaterAlphabetInfo(genre: Genre)
+    func getShowEndDateInfo()
+    func getShowAlphabetInfo()
+    func getTheaterAlphabetInfo()
 }
 
 protocol DetailShowInfoAPIProvider {
@@ -27,6 +27,6 @@ protocol MapAPIProvider {
 }
 
 protocol SearchAPIProvider {
-    func searchShow(genre: Genre)
-    func searchTheater(genre: Genre)
+    func searchShow(keyword: String)
+    func searchTheater(keyword: String)
 }

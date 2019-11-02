@@ -10,73 +10,182 @@ import UIKit
 
 class SearchVC: UIViewController {
 
-    typealias SearchShowResult = (showName: String, theater: String)
-    typealias SearchTheaterResult = (theaterName: String, theaterDistance: String, theaterLocation: String, theaterPhoneNumber: String)
-
+    @IBOutlet weak var sortAndGenreBtn: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var placeholderLbl: UILabel!
 
-    let searchController = UISearchController(searchResultsController: nil)
+    private let httpClient = HTTPClient()
 
-    var searchShowResults = [SearchShowResult]()
-    var searchTheaterResults = [SearchTheaterResult]()
-    var searchHistory = [String]()
+    private var genre = Genre.all
+    private var sort = Sort.alphabetical
+
+    let searchBar = UISearchBar()
+
+    var searchShowResults = [SearchShowInfo]()
+    var searchTheaterResults = [SearchTheaterInfo]()
+    var searchHistory: [String]? = UserDefaults.standard.stringArray(forKey: "SearchHistory")
+    var delegate: SortAndGenreDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBarTitleView()
-        searchControllerConfigure()
+        searchBarConfigure()
         tableView.backgroundColor = UIColor.white
+        tableView.register(UINib(nibName: "SearchShowTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchShowTableViewCell")
+        tableView.register(UINib(nibName: "SearchTheaterTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchTheaterTableViewCell")
+        tableView.register(UINib(nibName: "SearchHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchHistoryTableViewCell")
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        UserDefaults.standard.set(searchHistory, forKey: "SearchHistory")
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? SortAndGenreVC {
+            vc.delegate = self
+            delegate = vc
+            delegate?.getSortIndexAndFilterGenre(sort: sort, genre: genre)
+        }
+    }
+
+    @objc func deleteRows(_ sender: UIButton) {
+        let point = sender.convert(CGPoint.zero, to: tableView)
+        guard let indexPath = tableView.indexPathForRow(at: point) else { return }
+        searchHistory?.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+
+    @IBAction func segmentedControlAction(_ sender: UISegmentedControl) {
+        searchBar.placeholder = sender.titleForSegment(at: sender.selectedSegmentIndex)! + "검색"
+        tableView.reloadData()
     }
 }
 
-extension SearchVC: UISearchResultsUpdating {
-
-    func filterContent(for searchText: String) {
-
+extension SearchVC: SearchAPIProvider {
+    func searchShow(keyword: String) {
+        let query = "?searchType=" + genre.rawValue + "&searchType=" + sort.rawValue + "&keyword=" + keyword
+        httpClient.get(url: SoulURL.searchShow(search: query).getPath())
+            .responseData { [weak self] (response) in
+                guard let strongSelf = self else { return }
+                DispatchQueue.main.async {
+                    guard let response = response.data, let data = try? JSONDecoder().decode([SearchShowInfo].self, from: response) else {
+                        strongSelf.placeholderLbl.text = "검색결과가 없습니다"
+                        strongSelf.tableView.reloadData()
+                        return
+                    }
+                    strongSelf.searchShowResults = data
+                    strongSelf.tableView.reloadData()
+                    strongSelf.searchHistory?.append(keyword)
+                }
+        }
     }
 
-    private func searchControllerConfigure() {
-        searchController.searchResultsUpdater = self
-        self.definesPresentationContext = true
-        self.navigationItem.titleView = searchController.searchBar
-        searchController.hidesNavigationBarDuringPresentation = false
+    func searchTheater(keyword: String) {
+        let query = "?keyword=" + keyword
+        httpClient.get(url: SoulURL.searchShow(search: query).getPath())
+            .responseData { [weak self] (response) in
+                guard let strongSelf = self else { return }
+                DispatchQueue.main.async {
+                    guard let response = response.data, let data = try? JSONDecoder().decode([SearchTheaterInfo].self, from: response) else {
+                        strongSelf.placeholderLbl.text = "검색결과가 없습니다"
+                        strongSelf.tableView.reloadData()
+                        return
+                    }
+                    strongSelf.searchTheaterResults = data
+                    strongSelf.tableView.reloadData()
+                    strongSelf.searchHistory?.append(keyword)
+                }
+        }
+    }
+}
 
-        searchController.searchBar.setValue("취소", forKey: "cancelButtonText")
+extension SearchVC: SortAndGenreDelegate {
+    func getSortIndexAndFilterGenre(sort: Sort, genre: Genre) {
+        self.sort = sort
+        self.genre = genre
+    }
+}
+
+extension SearchVC: UISearchBarDelegate {
+    private func searchBarConfigure() {
+        searchBar.placeholder = "공연검색"
+        searchBar.tintColor = UIColor.white
+        searchBar.delegate = self
+        self.definesPresentationContext = true
+        self.navigationItem.titleView = searchBar
     }
 
     private func getCurrentSearchState() -> SearchState {
-        if searchController.searchBar.text == nil {
-            return .none
-        } else if segmentedControl.selectedSegmentIndex == 0 {
-            return .show
-        } else {
-            return .theater
-        }
+        if let txt = searchBar.text, txt.isEmpty { return .none }
+        return segmentedControl.selectedSegmentIndex == 0 ? .show : .theater
     }
 
-    func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text {
-            filterContent(for: searchText)
-            tableView.reloadData()
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        switch getCurrentSearchState() {
+        case .none:
+            showToast(message: "검색할 단어를 입력해주세요")
+        case .show:
+            searchShow(keyword: searchBar.text!)
+        case .theater:
+            searchTheater(keyword: searchBar.text!)
         }
+        searchBar.resignFirstResponder()
     }
 
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+    }
 }
 
 extension SearchVC: UITableViewDelegate, UITableViewDataSource {
 
-    func numberOfSections(in tableView: UITableView) -> Int { return 1 }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // If the search bar is active, use the searchResults data.
-//        return searchController.isActive ? searchResults.count : entries.count
-        return 0
+        switch getCurrentSearchState() {
+        case .none:
+            guard let history = searchHistory else { placeholderLbl.isHidden = false; return 0 }
+            placeholderLbl.isHidden = true
+            return history.count
+        case .show:
+            if searchShowResults.count == 0 { placeholderLbl.isHidden = false; return 0 }
+            placeholderLbl.isHidden = true
+            return searchShowResults.count
+        case .theater:
+            if searchTheaterResults.count == 0 { placeholderLbl.isHidden = false; return 0 }
+            placeholderLbl.isHidden = true
+            return searchTheaterResults.count
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let index = indexPath.row
+
+        switch getCurrentSearchState() {
+        case .none:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchHistoryTableViewCell") as! SearchHistoryTableViewCell
+            guard let history = searchHistory else { return cell }
+            cell.configure(history: history[index])
+            cell.deleteBtn.addTarget(self, action: #selector(deleteRows(_:)), for: .touchUpInside)
+            return cell
+        case .show:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchShowTableViewCell") as! SearchShowTableViewCell
+            cell.configure(info: searchShowResults[index])
+            return cell
+        case .theater:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTheaterTableViewCell") as! SearchTheaterTableViewCell
+            cell.configure(info: searchTheaterResults[index])
+            return cell
+        }
     }
+
+
+
 }
 
 enum SearchState {

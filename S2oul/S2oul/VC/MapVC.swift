@@ -9,7 +9,7 @@
 import UIKit
 
 class MapVC: UIViewController {
-
+    
     @IBOutlet weak var mapView: Round22View!
     @IBOutlet weak var tableView: UITableView!
     
@@ -18,5 +18,5 @@ class MapVC: UIViewController {
         configureNavigationBarTitleView()
         tableView.backgroundColor = UIColor.white
     }
-
+    
 }

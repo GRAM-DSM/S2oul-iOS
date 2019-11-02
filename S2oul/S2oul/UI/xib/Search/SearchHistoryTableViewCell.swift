@@ -12,7 +12,6 @@ class SearchHistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var historyTitleLbl: UILabel!
     @IBOutlet weak var deleteBtn: UIButton!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,6 +21,10 @@ class SearchHistoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+
+    func configure(history: String) {
+        historyTitleLbl.text = history
     }
     
 }

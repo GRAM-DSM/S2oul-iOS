@@ -8,6 +8,7 @@ pod 'Alamofire', '~> 5.0.0-rc.2'
 pod 'GoogleMaps'
 pod 'Kingfisher'
 pod 'expanding-collection'
+pod 'Toaster'
 
   # Pods for S2oul
 

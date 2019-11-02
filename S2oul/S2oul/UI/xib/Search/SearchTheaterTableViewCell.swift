@@ -25,5 +25,11 @@ class SearchTheaterTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+
+    func configure(info: SearchTheaterInfo) {
+        theaterNameLbl.text = info.theaterName
+        theaterLocationLbl.text = info.location
+        theaterPhoneNumberLbl.text = info.phoneNumber
+    }
     
 }

@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-S2oul/Pods-S2oul-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
+${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework
 ${BUILT_PRODUCTS_DIR}/expanding-collection/expanding_collection.framework

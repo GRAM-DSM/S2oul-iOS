@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 import Kingfisher
 
 class ShowDetailVC: UIViewController {
@@ -36,6 +37,27 @@ class ShowDetailVC: UIViewController {
         tableView.register(UINib(nibName: "ShowDetailTheaterCell", bundle: nil), forCellReuseIdentifier: "ShowDetailTheaterCell")
     }
 
+    private func setData(_ data: ShowDetailInfo) {
+        showImgView.kf.setImage(with: URL(string: data.showImage))
+        showNameLbl.text = data.showName
+        showPeriodLbl.text = data.period
+        showAgeLbl.text = data.age
+        showPriceLbl.text = data.cost
+        theaterNameLbl.text = data.theaterName
+        runningTimeLbl.text = data.runningTime
+        reservationLink = data.link
+        summaryImgView.kf.setImage(with: URL(string: data.summaryImage))
+        theaterInfo = data
+        tableView.reloadData()
+    }
+
+    @IBAction func reservationBtnAction(_ sender: Round10Button) {
+        if let url = URL(string: reservationLink) {
+            let vc = SFSafariViewController(url: url)
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+
 }
 
 extension ShowDetailVC: DetailShowInfoAPIProvider {
@@ -45,19 +67,9 @@ extension ShowDetailVC: DetailShowInfoAPIProvider {
                 guard let strongSelf = self else { return }
                 guard let data = data.data, let response = try? JSONDecoder().decode(ShowDetailInfo.self, from: data) else { return }
                 DispatchQueue.main.async {
-                    strongSelf.showImgView.kf.setImage(with: URL(string: response.showImage))
-                    strongSelf.showNameLbl.text = response.showName
-                    strongSelf.showPeriodLbl.text = response.period
-                    strongSelf.showAgeLbl.text = response.age
-                    strongSelf.showPriceLbl.text = response.cost
-                    strongSelf.theaterNameLbl.text = response.theaterName
-                    strongSelf.runningTimeLbl.text = response.runningTime
-                    strongSelf.reservationLink = response.link
-                    strongSelf.summaryImgView.kf.setImage(with: URL(string: response.summaryImage))
-                    strongSelf.theaterInfo = response
-                    strongSelf.tableView.reloadData()
+                    strongSelf.setData(response)
                 }
-            }
+        }
     }
 }
 
