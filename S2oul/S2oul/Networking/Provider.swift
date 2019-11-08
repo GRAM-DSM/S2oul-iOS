@@ -23,7 +23,7 @@ protocol DetailTheaterInfoAPIProvider {
 }
 
 protocol MapAPIProvider {
-    func getMap(latAndLng: String)
+    func getMap(latitude: String, longtitude: String)
 }
 
 protocol SearchAPIProvider {

@@ -44,7 +44,7 @@ extension TheaterDetailVC: DetailTheaterInfoAPIProvider {
                     strongSelf.theaterNameLbl.text = response.theaterName
                     strongSelf.theaterPhoneNumberLbl.text = response.phoneNumber
                     strongSelf.theaterLocationLbl.text = response.location
-                    strongSelf.numberOfSeatsLbl.text = response.seatNumber
+                    strongSelf.numberOfSeatsLbl.text = "\(response.seatNumber)"
                     strongSelf.simpleShowArr = response.shows
                 }
         }

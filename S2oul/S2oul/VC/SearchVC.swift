@@ -26,6 +26,7 @@ class SearchVC: UIViewController {
     var searchTheaterResults = [SearchTheaterInfo]()
     var searchHistory: [String]? = UserDefaults.standard.stringArray(forKey: "SearchHistory")
     var delegate: SortAndGenreDelegate?
+    var detailDelegate: DetailInfoDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +77,10 @@ extension SearchVC: SearchAPIProvider {
                     }
                     strongSelf.searchShowResults = data
                     strongSelf.tableView.reloadData()
-                    strongSelf.searchHistory?.append(keyword)
+                    strongSelf.searchHistory?.forEach({ (history) in
+                        if history == keyword { return }
+                        strongSelf.searchHistory?.append(keyword)
+                    })
                 }
         }
     }
@@ -94,7 +98,10 @@ extension SearchVC: SearchAPIProvider {
                     }
                     strongSelf.searchTheaterResults = data
                     strongSelf.tableView.reloadData()
-                    strongSelf.searchHistory?.append(keyword)
+                    strongSelf.searchHistory?.forEach({ (history) in
+                        if history == keyword { return }
+                        strongSelf.searchHistory?.append(keyword)
+                    })
                 }
         }
     }
@@ -141,6 +148,11 @@ extension SearchVC: UISearchBarDelegate {
         searchBar.showsCancelButton = false
         searchBar.text = ""
         searchBar.resignFirstResponder()
+        tableView.reloadData()
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty { tableView.reloadData() }
     }
 }
 
@@ -184,7 +196,24 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch getCurrentSearchState() {
+        case .none:
+            guard let history = searchHistory else { return }
+            searchBar.text = history[indexPath.row]
+            searchBarSearchButtonClicked(searchBar)
+        case .show:
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ShowDetailVC") as! ShowDetailVC
+            detailDelegate = vc
+            detailDelegate?.getId(id: searchShowResults[indexPath.row].showId)
+            self.navigationController?.pushViewController(vc, animated: false)
+        case .theater:
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "TheaterDetailVC") as! TheaterDetailVC
+            detailDelegate = vc
+            detailDelegate?.getId(id: searchTheaterResults[indexPath.row].theaterId)
+            self.navigationController?.pushViewController(vc, animated: false)
+        }
+    }
 
 }
 

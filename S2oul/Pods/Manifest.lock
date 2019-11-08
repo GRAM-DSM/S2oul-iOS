@@ -1,37 +1,30 @@
 PODS:
-  - Alamofire (5.0.0-rc.2)
+  - Alamofire (5.0.0-rc.3)
   - expanding-collection (3.1.0)
-  - GoogleMaps (3.4.0):
-    - GoogleMaps/Maps (= 3.4.0)
-  - GoogleMaps/Base (3.4.0)
-  - GoogleMaps/Maps (3.4.0):
-    - GoogleMaps/Base
-  - Kingfisher (5.7.1)
+  - Kingfisher (5.9.0):
+    - Kingfisher/Core (= 5.9.0)
+  - Kingfisher/Core (5.9.0)
   - Toaster (2.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-rc.2)
   - expanding-collection
-  - GoogleMaps
   - Kingfisher
   - Toaster
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Alamofire
     - expanding-collection
-    - GoogleMaps
     - Kingfisher
-  trunk:
     - Toaster
 
 SPEC CHECKSUMS:
-  Alamofire: f9450d3c7f6bea2ad62e7a541c3e9b186c7991d6
+  Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
   expanding-collection: 7eb1fc48c6ec5e00c8887fe46c595c31b81b578a
-  GoogleMaps: 67f4a604f80dd6a22d09c2a507a3a395b9f23060
-  Kingfisher: 176d377ad339113c99ad4980cbae687f807e20fe
+  Kingfisher: ff98240aebb7302bdc4f1ecd701761030ce18b16
   Toaster: c1a81b376edcc2470157b4d1ee1e9341d3b96455
 
-PODFILE CHECKSUM: fd7b174936b76a87280f3cb16c46528c9995edb7
+PODFILE CHECKSUM: b13e080d3b6d1f36d542fac2d6b547876984e7df
 
 COCOAPODS: 1.8.4

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 import expanding_collection
 
 class HomeVC: ExpandingViewController {
@@ -21,7 +20,6 @@ class HomeVC: ExpandingViewController {
         itemSize = CGSize(width: 256, height: 350)
         super.viewDidLoad()
         configureNavigationBarTitleView()
-
         registerCell()
         layoutConfigure()
     }
@@ -38,7 +36,7 @@ extension HomeVC {
         pageLbl.translatesAutoresizingMaskIntoConstraints = false
 
         guard let collectionView = collectionView else { return }
-        titleBtn.bottomAnchor.constraint(equalTo: collectionView.topAnchor, constant: 4).isActive = true
+        titleBtn.bottomAnchor.constraint(equalTo: collectionView.topAnchor, constant: -16).isActive = true
         titleBtn.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         pageLbl.topAnchor.constraint(equalTo:  collectionView.bottomAnchor, constant: 16).isActive = true
         pageLbl.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true

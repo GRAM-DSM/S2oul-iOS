@@ -47,6 +47,7 @@
 		377C308D23361F2100547904 /* SearchTheaterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377C308B23361F2100547904 /* SearchTheaterTableViewCell.swift */; };
 		377C308E23361F2100547904 /* SearchTheaterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 377C308C23361F2100547904 /* SearchTheaterTableViewCell.xib */; };
 		377C309023362D3700547904 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377C308F23362D3700547904 /* Color.swift */; };
+		3794BB9A2375788D00EDE7F7 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3794BB992375788D00EDE7F7 /* MapModel.swift */; };
 		379C6B3C233798600071D552 /* InfoShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379C6B3A233798600071D552 /* InfoShowTableViewCell.swift */; };
 		379C6B3D233798600071D552 /* InfoShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379C6B3B233798600071D552 /* InfoShowTableViewCell.xib */; };
 		379C6B40233798820071D552 /* InfoTheaterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379C6B3E233798820071D552 /* InfoTheaterTableViewCell.swift */; };
@@ -55,7 +56,6 @@
 		379C6B492337D9B40071D552 /* ShowDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379C6B482337D9B40071D552 /* ShowDetailVC.swift */; };
 		379C6B4B2337D9C70071D552 /* TheaterDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379C6B4A2337D9C70071D552 /* TheaterDetailVC.swift */; };
 		37C9698123606560003F9551 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C9698023606560003F9551 /* Shape.swift */; };
-		37C9698823606587003F9551 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C9698323606587003F9551 /* MapModel.swift */; };
 		37C9698923606587003F9551 /* DetailInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C9698423606587003F9551 /* DetailInfoModel.swift */; };
 		37C9698A23606587003F9551 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C9698523606587003F9551 /* InfoModel.swift */; };
 		37C9698B23606587003F9551 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C9698623606587003F9551 /* SearchModel.swift */; };
@@ -116,6 +116,7 @@
 		377C308B23361F2100547904 /* SearchTheaterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTheaterTableViewCell.swift; sourceTree = "<group>"; };
 		377C308C23361F2100547904 /* SearchTheaterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTheaterTableViewCell.xib; sourceTree = "<group>"; };
 		377C308F23362D3700547904 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		3794BB992375788D00EDE7F7 /* MapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapModel.swift; path = ../../../../../../.Trash/MapModel.swift; sourceTree = "<group>"; };
 		379C6B3A233798600071D552 /* InfoShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoShowTableViewCell.swift; sourceTree = "<group>"; };
 		379C6B3B233798600071D552 /* InfoShowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoShowTableViewCell.xib; sourceTree = "<group>"; };
 		379C6B3E233798820071D552 /* InfoTheaterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTheaterTableViewCell.swift; sourceTree = "<group>"; };
@@ -124,7 +125,6 @@
 		379C6B482337D9B40071D552 /* ShowDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailVC.swift; sourceTree = "<group>"; };
 		379C6B4A2337D9C70071D552 /* TheaterDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterDetailVC.swift; sourceTree = "<group>"; };
 		37C9698023606560003F9551 /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
-		37C9698323606587003F9551 /* MapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		37C9698423606587003F9551 /* DetailInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailInfoModel.swift; sourceTree = "<group>"; };
 		37C9698523606587003F9551 /* InfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
 		37C9698623606587003F9551 /* SearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
@@ -262,8 +262,8 @@
 			children = (
 				37C9698423606587003F9551 /* DetailInfoModel.swift */,
 				37C9698523606587003F9551 /* InfoModel.swift */,
-				37C9698323606587003F9551 /* MapModel.swift */,
 				37C9698623606587003F9551 /* SearchModel.swift */,
+				3794BB992375788D00EDE7F7 /* MapModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -377,7 +377,6 @@
 				3753A71F23324B530075592C /* Frameworks */,
 				3753A72023324B530075592C /* Resources */,
 				68286ADA162274D6A2FF8E35 /* [CP] Embed Pods Frameworks */,
-				E50CAFAF421BC50A63B545DB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -503,23 +502,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E50CAFAF421BC50A63B545DB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-S2oul/Pods-S2oul-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-S2oul/Pods-S2oul-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-S2oul/Pods-S2oul-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -543,12 +525,12 @@
 				379C6B4B2337D9C70071D552 /* TheaterDetailVC.swift in Sources */,
 				3753A72623324B530075592C /* AppDelegate.swift in Sources */,
 				379C6B3C233798600071D552 /* InfoShowTableViewCell.swift in Sources */,
+				3794BB9A2375788D00EDE7F7 /* MapModel.swift in Sources */,
 				377C308D23361F2100547904 /* SearchTheaterTableViewCell.swift in Sources */,
 				372029232338AA9500AE7E5D /* MapVC.swift in Sources */,
 				37E55F0D233786B200DFDE6F /* HomeModalVC.swift in Sources */,
 				379C6B492337D9B40071D552 /* ShowDetailVC.swift in Sources */,
 				3753A74C2333C6DD0075592C /* HomeCollectionViewCell.swift in Sources */,
-				37C9698823606587003F9551 /* MapModel.swift in Sources */,
 				379C6B40233798820071D552 /* InfoTheaterTableViewCell.swift in Sources */,
 				377C308923361EE600547904 /* SearchShowTableViewCell.swift in Sources */,
 				37C9698123606560003F9551 /* Shape.swift in Sources */,
@@ -720,7 +702,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -746,7 +728,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
