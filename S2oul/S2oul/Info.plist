@@ -19,7 +19,19 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
-	<true/>
+	<false/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>항상 위치 사용</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>사용중에만 위치 사용</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Seoulnamsan_B.otf</string>
+		<string>Seoulnamsan_BL.otf</string>
+		<string>Seoulnamsan_EB.otf</string>
+		<string>Seoulnamsan_L.otf</string>
+		<string>Seoulnamsan_M.otf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
