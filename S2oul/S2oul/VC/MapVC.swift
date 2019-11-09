@@ -100,7 +100,7 @@ extension MapVC: CLLocationManagerDelegate, MKMapViewDelegate {
 
 extension MapVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return aroundTheater.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

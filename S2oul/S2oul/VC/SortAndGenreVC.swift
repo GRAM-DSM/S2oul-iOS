@@ -10,22 +10,24 @@ import UIKit
 
 class SortAndGenreVC: UIViewController {
 
-    typealias SelectedGenre = (tableView: Int, index: Int, cell: GenreCollectionViewCell?)
-
     @IBOutlet weak var sortView: UIView!
     @IBOutlet weak var sectionView: UIView!
     @IBOutlet weak var genreView: UIView!
     
-    @IBOutlet weak var firstGenreCollectionView: UICollectionView!
-    @IBOutlet weak var secondGenreCollectionView: UICollectionView!
-    @IBOutlet weak var segmentedControl: SoulSegmentedControl!
-    
-    private let firstTitles = ["전체", "연극", "뮤지컬"]
-    private let secondTitles = ["콘서트/전시", "아동/가족"]
-    private let firstImages = ["all", "play", "musical"]
-    private let secondImages = ["concertAndShow", "childAndFamily"]
+    @IBOutlet weak var allBtn: Round12Button!
+    @IBOutlet weak var allLbl: UILabel!
+    @IBOutlet weak var playBtn: Round12Button!
+    @IBOutlet weak var playLbl: UILabel!
+    @IBOutlet weak var musicalBtn: Round12Button!
+    @IBOutlet weak var musicalLbl: UILabel!
+    @IBOutlet weak var concertAndShowBtn: Round12Button!
+    @IBOutlet weak var concertAndShowLbl: UILabel!
+    @IBOutlet weak var childAndFamilyBtn: Round12Button!
+    @IBOutlet weak var childAndFamilyLbl: UILabel!
 
-    private var selectedGenre: SelectedGenre = (0, 0, nil)
+    @IBOutlet weak var segmentedControl: SoulSegmentedControl!
+
+    private var selectedGenre = Genre.all
     private var selectedSort = 0
     
     var delegate: SortAndGenreDelegate?
@@ -33,113 +35,59 @@ class SortAndGenreVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         segmentedControl.selectedSegmentIndex = selectedSort
+        changeSelectedGenreColor(isCurrentSelected: true)
+        allBtn.addTarget(self, action: #selector(selectedGenreAction(_:)), for: .touchUpInside)
+        playBtn.addTarget(self, action: #selector(selectedGenreAction(_:)), for: .touchUpInside)
+        musicalBtn.addTarget(self, action: #selector(selectedGenreAction(_:)), for: .touchUpInside)
+        concertAndShowBtn.addTarget(self, action: #selector(selectedGenreAction(_:)), for: .touchUpInside)
+        childAndFamilyBtn.addTarget(self, action: #selector(selectedGenreAction(_:)), for: .touchUpInside)
+    }
+
+    private func changeGenreColor(_ isSelected: Bool, btn: UIButton, lbl: UILabel) {
+        if isSelected {
+            btn.tintColor = UIColor.white
+            btn.backgroundColor = UIColor.seoul
+            lbl.textColor = UIColor.white
+        } else {
+            btn.tintColor = UIColor.seoul
+            btn.backgroundColor = UIColor.white
+            lbl.textColor = UIColor.seoul
+        }
+    }
+
+    private func changeSelectedGenreColor(isCurrentSelected: Bool) {
+        switch selectedGenre {
+        case .all: changeGenreColor(isCurrentSelected, btn: allBtn, lbl: allLbl)
+        case .play: changeGenreColor(isCurrentSelected, btn: playBtn, lbl: playLbl)
+        case .musical: changeGenreColor(isCurrentSelected, btn: musicalBtn, lbl: musicalLbl)
+        case .concertAndShow: changeGenreColor(isCurrentSelected, btn: concertAndShowBtn, lbl: concertAndShowLbl)
+        case .childAndFamily: changeGenreColor(isCurrentSelected, btn: childAndFamilyBtn, lbl: childAndFamilyLbl)
+        }
     }
     
-    @IBAction func sortAndGenreAdjustBtn(_ sender: UIButton) {
+    @IBAction func sortAndGenreAdjustBtnAction(_ sender: UIButton) {
         delegate?.getSortIndexAndFilterGenre(sort: Sort.getGenre(index: segmentedControl.selectedSegmentIndex),
-                                             genre: Genre.getGenre(index: selectedGenre.index))
+                                             genre: selectedGenre)
         self.navigationController?.popViewController(animated: true)
+    }
+
+    @objc func selectedGenreAction(_ sender: UIButton) {
+        changeSelectedGenreColor(isCurrentSelected: false)
+        switch sender.tag {
+        case 0: selectedGenre = .all
+        case 1: selectedGenre = .play
+        case 2: selectedGenre = .musical
+        case 3: selectedGenre = .concertAndShow
+        case 4: selectedGenre = .childAndFamily
+        default: print(sender.tag)
+        }
+        changeSelectedGenreColor(isCurrentSelected: true)
     }
 }
 
 extension SortAndGenreVC: SortAndGenreDelegate {
     func getSortIndexAndFilterGenre(sort: Sort, genre: Genre) {
-        switch genre {
-        case .all, .play, .musical:
-            selectedGenre = (0, genre.getIndex(), nil)
-        default:
-            selectedGenre = (1, genre.getIndex(), nil)
-        }
+        selectedGenre = genre
         selectedSort = sort.getIndex()
     }
-}
-
-extension SortAndGenreVC: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collectionView == firstGenreCollectionView ? 3 : 2
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GenreCollectionViewCell", for: indexPath) as! GenreCollectionViewCell
-        let index = indexPath.item
-
-        if collectionView == firstGenreCollectionView {
-            cell.firstConfigure(img: firstImages[index], title: firstTitles[index])
-            if selectedGenre.index == index {
-                cell.changeFirstCellColor(tintColor: UIColor.white, backgroundColor: UIColor.seoul)
-                selectedGenre.cell = cell
-            }
-        } else {
-            cell.secondConfigure(img: secondImages[index], title: secondTitles[index])
-            if selectedGenre.index == index + 3 {
-                cell.changeSecondCellColor(tintColor: UIColor.white, backgroundColor: UIColor.seoul)
-                selectedGenre.cell = cell
-            }
-        }
-        return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! GenreCollectionViewCell
-        changeBeforeSelectedCellColor()
-
-        if collectionView == firstGenreCollectionView {
-            cell.changeFirstCellColor(tintColor: UIColor.white, backgroundColor: UIColor.seoul)
-            selectedGenre.tableView = 0
-            selectedGenre.index = indexPath.row
-        } else {
-            cell.changeSecondCellColor(tintColor: UIColor.white, backgroundColor: UIColor.seoul)
-            selectedGenre.tableView = 1
-            selectedGenre.index = indexPath.row + 3
-        }
-        selectedGenre.cell = cell
-    }
-
-    private func changeBeforeSelectedCellColor() {
-        if let selectedCell = selectedGenre.cell {
-            if selectedGenre.tableView == 0 {
-                selectedCell.changeFirstCellColor(tintColor: UIColor.seoul, backgroundColor: UIColor.white)
-            } else {
-                selectedCell.changeSecondCellColor(tintColor: UIColor.seoul, backgroundColor: UIColor.white)
-            }
-        }
-    }
-}
-
-class GenreCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var firstIconImgView: UIImageView!
-    @IBOutlet weak var firstTitleLbl: UILabel!
-    @IBOutlet weak var secondIconImgView: UIImageView!
-    @IBOutlet weak var secondTitleLbl: UILabel!
-
-    func firstConfigure(img: String, title: String) {
-        firstIconImgView.image = UIImage(named: "\(img).png")
-        firstTitleLbl.text = title
-        configureBorder()
-    }
-
-    func secondConfigure(img: String, title: String) {
-        secondIconImgView.image = UIImage(named: "\(img).png")
-        secondTitleLbl.text = title
-        configureBorder()
-    }
-
-    func changeFirstCellColor(tintColor: UIColor, backgroundColor: UIColor) {
-        firstIconImgView.tintColor = tintColor
-        firstTitleLbl.textColor = tintColor
-        contentView.backgroundColor = backgroundColor
-    }
-
-    func changeSecondCellColor(tintColor: UIColor, backgroundColor: UIColor) {
-        secondIconImgView.tintColor = tintColor
-        secondTitleLbl.textColor = tintColor
-        contentView.backgroundColor = backgroundColor
-    }
-
-    private func configureBorder() {
-        contentView.layer.borderColor = UIColor.seoul.cgColor
-        contentView.layer.borderWidth = 1
-        contentView.layer.cornerRadius = 12
-    }
-
 }
