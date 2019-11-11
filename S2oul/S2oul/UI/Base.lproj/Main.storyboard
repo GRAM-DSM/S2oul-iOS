@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EoT-Oe-V3Z">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -45,7 +45,7 @@
             <objects>
                 <viewController storyboardIdentifier="HomeVC" title="Home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sIe-U7-U2e" customClass="HomeVC" customModule="S2oul" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zlJ-lO-e3s">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yk7-f4-Tz7">
@@ -93,53 +93,53 @@
             <objects>
                 <viewController storyboardIdentifier="ShowDetailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="m0C-j9-ndR" customClass="ShowDetailVC" customModule="S2oul" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mxe-fb-G6J">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vry-eb-eei">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6UR-Gm-9g0" userLabel="contentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lQl-QG-fIq" userLabel="showView">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="271"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="337.33333333333331"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="showName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxk-YJ-Kvl">
-                                                        <rect key="frame" x="117.5" y="32" width="85.5" height="20"/>
+                                                        <rect key="frame" x="164.33333333333334" y="32" width="85.666666666666657" height="20"/>
                                                         <fontDescription key="fontDescription" name="SeN-CEB" family="SeoulNamsan CEB" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="BMV-Lx-vls">
-                                                        <rect key="frame" x="184" y="84" width="112" height="133"/>
+                                                        <rect key="frame" x="231" y="84.000000000000014" width="159" height="199.33333333333337"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="showPeriod" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxl-Wx-ogD">
-                                                                <rect key="frame" x="0.0" y="0.0" width="112" height="26.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="159" height="40"/>
                                                                 <fontDescription key="fontDescription" name="SeN-CEB" family="SeoulNamsan CEB" pointSize="13"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="showAge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsT-95-gDv">
-                                                                <rect key="frame" x="0.0" y="26.5" width="112" height="26.5"/>
+                                                                <rect key="frame" x="0.0" y="40" width="159" height="39.666666666666657"/>
                                                                 <fontDescription key="fontDescription" name="SeN-CEB" family="SeoulNamsan CEB" pointSize="13"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="showPrice" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vPq-5g-zC9">
-                                                                <rect key="frame" x="0.0" y="53" width="112" height="26.5"/>
+                                                                <rect key="frame" x="0.0" y="79.666666666666657" width="159" height="40"/>
                                                                 <fontDescription key="fontDescription" name="SeN-CEB" family="SeoulNamsan CEB" pointSize="13"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="theaterName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xa-Ce-ujF">
-                                                                <rect key="frame" x="0.0" y="79.5" width="112" height="27"/>
+                                                                <rect key="frame" x="0.0" y="119.66666666666667" width="159" height="39.666666666666671"/>
                                                                 <fontDescription key="fontDescription" name="SeN-CEB" family="SeoulNamsan CEB" pointSize="13"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="runningTime" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zC9-32-g8N">
-                                                                <rect key="frame" x="0.0" y="106.5" width="112" height="26.5"/>
+                                                                <rect key="frame" x="0.0" y="159.33333333333331" width="159" height="40"/>
                                                                 <fontDescription key="fontDescription" name="SeN-CEB" family="SeoulNamsan CEB" pointSize="13"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -147,13 +147,13 @@
                                                         </subviews>
                                                     </stackView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ujw-F6-Cax" customClass="RoundImageView" customModule="S2oul" customModuleProvider="target">
-                                                        <rect key="frame" x="24" y="84" width="124" height="175"/>
+                                                        <rect key="frame" x="24" y="84.000000000000014" width="171" height="241.33333333333337"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="ujw-F6-Cax" secondAttribute="height" multiplier="475:670" id="nEn-fO-w3k"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3G-Y0-ih8" customClass="Round10Button" customModule="S2oul" customModuleProvider="target">
-                                                        <rect key="frame" x="204" y="229" width="72" height="30"/>
+                                                        <rect key="frame" x="251" y="295.33333333333331" width="119" height="30"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="5ge-5s-cWW"/>
@@ -164,7 +164,7 @@
                                                         </state>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reservation" translatesAutoresizingMaskIntoConstraints="NO" id="I7x-ux-Ds1">
-                                                        <rect key="frame" x="194" y="233" width="22" height="22"/>
+                                                        <rect key="frame" x="264.66666666666669" y="299.33333333333331" width="22" height="22"/>
                                                         <color key="tintColor" red="0.58039215690000001" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="I7x-ux-Ds1" secondAttribute="height" id="HUQ-Fa-yrx"/>
@@ -192,27 +192,27 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L4m-nN-7fF" userLabel="divisionLine1">
-                                                <rect key="frame" x="32" y="283" width="256" height="3"/>
+                                                <rect key="frame" x="32" y="349.33333333333331" width="350" height="3"/>
                                                 <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="0.5" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="3" id="CHz-D5-kSP"/>
                                                 </constraints>
                                             </view>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cDX-8K-CHm">
-                                                <rect key="frame" x="56" y="298" width="208" height="131"/>
+                                                <rect key="frame" x="56" y="364.33333333333326" width="302" height="314.66666666666674"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="BX4-II-gNN"/>
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mge-el-Ocf" userLabel="divisionLine2">
-                                                <rect key="frame" x="32" y="441" width="256" height="3"/>
+                                                <rect key="frame" x="32" y="691" width="350" height="3"/>
                                                 <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="0.5" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="3" id="E5z-cS-Y0v"/>
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="G6i-sk-tok">
-                                                <rect key="frame" x="56" y="456" width="208" height="100"/>
+                                                <rect key="frame" x="56" y="706" width="302" height="100"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="saX-La-kWS"/>
@@ -287,7 +287,7 @@
                         <color key="badgeColor" red="0.58039215690000001" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="9mJ-DL-3cS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.58039215690000001" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -306,11 +306,11 @@
             <objects>
                 <viewController storyboardIdentifier="SearchVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="J0F-7o-IkB" customClass="SearchVC" customModule="S2oul" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jQm-WN-Mog">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p0N-oL-xHo">
-                                <rect key="frame" x="0.0" y="67" width="320" height="408"/>
+                                <rect key="frame" x="0.0" y="67" width="414" height="658"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -319,7 +319,7 @@
                                 </connections>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DhL-wc-hpf" customClass="SoulSegmentedControl" customModule="S2oul" customModuleProvider="target">
-                                <rect key="frame" x="80" y="16" width="160" height="32"/>
+                                <rect key="frame" x="80" y="16" width="254" height="32"/>
                                 <segments>
                                     <segment title="공연"/>
                                     <segment title="소극장"/>
@@ -330,7 +330,7 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최근검색어가 없습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AC0-gs-SeF">
-                                <rect key="frame" x="75.5" y="252" width="169" height="20"/>
+                                <rect key="frame" x="122.66666666666669" y="394" width="169" height="20"/>
                                 <fontDescription key="fontDescription" name="SeN-CEB" family="SeoulNamsan CEB" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -378,7 +378,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Wvu-c7-sQ1"/>
                     <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="CjZ-fM-BOO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.58039215690000001" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -398,11 +398,11 @@
             <objects>
                 <viewController storyboardIdentifier="MapVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="F9c-P4-OHx" customClass="MapVC" customModule="S2oul" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ojy-ug-sJU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yoP-jh-Fdg">
-                                <rect key="frame" x="8" y="320" width="304" height="155"/>
+                                <rect key="frame" x="8" y="414" width="398" height="311"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -411,7 +411,7 @@
                                 </connections>
                             </tableView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zu6-xi-ibm">
-                                <rect key="frame" x="8" y="8" width="304" height="304"/>
+                                <rect key="frame" x="8" y="8" width="398" height="398"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="zu6-xi-ibm" secondAttribute="height" id="WHu-qV-SBe"/>
                                 </constraints>
@@ -455,20 +455,20 @@
             <objects>
                 <viewController storyboardIdentifier="SortAndGenreVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5FS-zv-IqJ" customClass="SortAndGenreVC" customModule="S2oul" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OZ0-CD-5lt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="475"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56u-D1-5Kp">
-                                <rect key="frame" x="10" y="10" width="300" height="73"/>
+                                <rect key="frame" x="10" y="10" width="394" height="73"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="정렬" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oz-t2-VSS">
-                                        <rect key="frame" x="136" y="4" width="28" height="18"/>
+                                        <rect key="frame" x="183" y="4" width="28" height="18"/>
                                         <fontDescription key="fontDescription" name="SeN-CEB" family="SeoulNamsan CEB" pointSize="18"/>
                                         <color key="textColor" red="0.14117647059999999" green="0.12941176469999999" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ff8-YY-5Zc" customClass="SoulSegmentedControl" customModule="S2oul" customModuleProvider="target">
-                                        <rect key="frame" x="86.5" y="42" width="127" height="32"/>
+                                        <rect key="frame" x="133.66666666666666" y="42" width="126.99999999999997" height="32"/>
                                         <segments>
                                             <segment title="종료일순"/>
                                             <segment title="가나다순"/>
@@ -486,23 +486,23 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ssz-WA-7f8">
-                                <rect key="frame" x="16" y="115" width="288" height="1"/>
+                                <rect key="frame" x="16" y="115" width="382" height="1"/>
                                 <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="8L2-HM-BVn"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MTv-d9-qda">
-                                <rect key="frame" x="20" y="148" width="280" height="303"/>
+                                <rect key="frame" x="20" y="148" width="374" height="553"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="장르" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPs-N3-hPg">
-                                        <rect key="frame" x="125.5" y="12" width="29" height="18"/>
+                                        <rect key="frame" x="172.66666666666666" y="12" width="29" height="18"/>
                                         <fontDescription key="fontDescription" name="SeN-CEB" family="SeoulNamsan CEB" pointSize="18"/>
                                         <color key="textColor" red="0.14117647059999999" green="0.12941176469999999" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jo8-HL-gY1" customClass="Round12Button" customModule="S2oul" customModuleProvider="target">
-                                        <rect key="frame" x="4" y="62" width="80" height="105"/>
+                                        <rect key="frame" x="51" y="62" width="80" height="105"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="105" id="PQF-Tc-dKf"/>
@@ -512,13 +512,13 @@
                                         <state key="normal" image="all"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전체" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuS-Vq-2If">
-                                        <rect key="frame" x="33.5" y="150" width="21" height="13"/>
+                                        <rect key="frame" x="80.666666666666671" y="150" width="21" height="13"/>
                                         <fontDescription key="fontDescription" name="SeN-CB" family="SeoulNamsan CB" pointSize="13"/>
                                         <color key="textColor" red="0.58039215690000001" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TuU-PR-6ia" customClass="Round12Button" customModule="S2oul" customModuleProvider="target">
-                                        <rect key="frame" x="100" y="62" width="80" height="105"/>
+                                        <rect key="frame" x="147" y="62" width="80" height="105"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="105" id="2gH-ge-SNt"/>
@@ -528,13 +528,13 @@
                                         <state key="normal" image="play"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="연극" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1L-iF-O14">
-                                        <rect key="frame" x="129.5" y="150" width="21" height="13"/>
+                                        <rect key="frame" x="176.66666666666666" y="150" width="21" height="13"/>
                                         <fontDescription key="fontDescription" name="SeN-CB" family="SeoulNamsan CB" pointSize="13"/>
                                         <color key="textColor" red="0.58039215690000001" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQb-xA-q7H" customClass="Round12Button" customModule="S2oul" customModuleProvider="target">
-                                        <rect key="frame" x="196" y="62" width="80" height="105"/>
+                                        <rect key="frame" x="243" y="62" width="80" height="105"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="105" id="AME-zy-AzW"/>
@@ -544,13 +544,13 @@
                                         <state key="normal" image="musical"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뮤지컬" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbu-oP-jac">
-                                        <rect key="frame" x="220.5" y="150" width="31" height="13"/>
+                                        <rect key="frame" x="267.66666666666669" y="150" width="31" height="13"/>
                                         <fontDescription key="fontDescription" name="SeN-CB" family="SeoulNamsan CB" pointSize="13"/>
                                         <color key="textColor" red="0.58039215690000001" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IOI-kY-T8e" customClass="Round12Button" customModule="S2oul" customModuleProvider="target">
-                                        <rect key="frame" x="52" y="195" width="80" height="105"/>
+                                        <rect key="frame" x="99" y="195" width="80" height="105"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="9CU-Xo-d4J"/>
@@ -560,13 +560,13 @@
                                         <state key="normal" image="concertAndShow"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="콘서트/전시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cky-YE-Ntd">
-                                        <rect key="frame" x="64" y="283" width="56" height="13"/>
+                                        <rect key="frame" x="111" y="283" width="56" height="13"/>
                                         <fontDescription key="fontDescription" name="SeN-CB" family="SeoulNamsan CB" pointSize="13"/>
                                         <color key="textColor" red="0.58039215690000001" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lO0-G6-Mu9" customClass="Round12Button" customModule="S2oul" customModuleProvider="target">
-                                        <rect key="frame" x="148" y="195" width="80" height="105"/>
+                                        <rect key="frame" x="195" y="195" width="80" height="105"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="105" id="OQR-ha-cbS"/>
@@ -576,7 +576,7 @@
                                         <state key="normal" image="childAndFamily"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아동/가족" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3j-nO-fXW">
-                                        <rect key="frame" x="165" y="283" width="46.5" height="13"/>
+                                        <rect key="frame" x="211.66666666666666" y="283" width="46.666666666666657" height="13"/>
                                         <fontDescription key="fontDescription" name="SeN-CB" family="SeoulNamsan CB" pointSize="13"/>
                                         <color key="textColor" red="0.58039215690000001" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -627,7 +627,7 @@
                     <navigationItem key="navigationItem" id="ybT-DZ-CN4">
                         <barButtonItem key="rightBarButtonItem" style="done" id="hGp-Bb-Yut">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="goG-kR-qTM">
-                                <rect key="frame" x="274" y="6" width="30" height="32"/>
+                                <rect key="frame" x="364" y="7.5" width="30" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SeN-CB" family="SeoulNamsan CB" pointSize="17"/>
                                 <state key="normal" title="적용"/>
@@ -669,7 +669,7 @@
                     <navigationItem key="navigationItem" id="IIu-PB-Nn4"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="oWE-cu-vlb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.58039215690000001" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -689,16 +689,16 @@
             <objects>
                 <viewController storyboardIdentifier="InfoVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="miM-JV-DpF" customClass="InfoVC" customModule="S2oul" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zOV-Xg-uKo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="475"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PO6-eD-4sF">
-                                <rect key="frame" x="0.0" y="67" width="320" height="408"/>
+                                <rect key="frame" x="0.0" y="67" width="414" height="658"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejc-wR-oa5" customClass="RoundAndShadowButton" customModule="S2oul" customModuleProvider="target">
-                                <rect key="frame" x="250" y="405" width="50" height="50"/>
+                                <rect key="frame" x="344" y="655" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.58039215690000001" green="0.1176470588" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ejc-wR-oa5" secondAttribute="height" id="HMZ-v8-Sad"/>
@@ -712,7 +712,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eAu-SN-Zd2" customClass="SoulSegmentedControl" customModule="S2oul" customModuleProvider="target">
-                                <rect key="frame" x="80" y="16" width="160" height="32"/>
+                                <rect key="frame" x="80" y="16" width="254" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <segments>
                                     <segment title="공연"/>
@@ -762,41 +762,41 @@
             <objects>
                 <viewController storyboardIdentifier="TheaterDetailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="orX-aI-lZ5" customClass="TheaterDetailVC" customModule="S2oul" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x41-To-UO7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPu-qH-Hdb" userLabel="theaterView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="409"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="theaterName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6J-It-qnI">
-                                        <rect key="frame" x="108.5" y="16" width="103.5" height="20"/>
+                                        <rect key="frame" x="155.33333333333334" y="16" width="103.33333333333334" height="20"/>
                                         <fontDescription key="fontDescription" name="SeN-CEB" family="SeoulNamsan CEB" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vMw-FA-309" customClass="RoundImageView" customModule="S2oul" customModuleProvider="target">
-                                        <rect key="frame" x="91" y="52" width="138" height="138"/>
+                                        <rect key="frame" x="75.666666666666686" y="52" width="263" height="263"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="vMw-FA-309" secondAttribute="height" id="7GW-Gk-sKE"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="3NU-Ep-YAI">
-                                        <rect key="frame" x="100.5" y="210" width="119.5" height="54"/>
+                                        <rect key="frame" x="147.33333333333334" y="335" width="119.66666666666666" height="54"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="theaterPhoneNumber" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mb-yK-it1">
-                                                <rect key="frame" x="0.0" y="0.0" width="119.5" height="14"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="119.66666666666667" height="14"/>
                                                 <fontDescription key="fontDescription" name="SeN-CB" family="SeoulNamsan CB" pointSize="14"/>
                                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="theaterLocation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2h-3l-I7e">
-                                                <rect key="frame" x="0.0" y="20" width="119.5" height="14"/>
+                                                <rect key="frame" x="0.0" y="20" width="119.66666666666667" height="14"/>
                                                 <fontDescription key="fontDescription" name="SeN-CB" family="SeoulNamsan CB" pointSize="14"/>
                                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="numberOfSeats" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZd-5H-oUW">
-                                                <rect key="frame" x="0.0" y="40" width="119.5" height="14"/>
+                                                <rect key="frame" x="0.0" y="40" width="119.66666666666667" height="14"/>
                                                 <fontDescription key="fontDescription" name="SeN-CB" family="SeoulNamsan CB" pointSize="14"/>
                                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -816,21 +816,21 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tuo-4Y-JMb" userLabel="divisionLine">
-                                <rect key="frame" x="16" y="296" width="288" height="1"/>
+                                <rect key="frame" x="16" y="465" width="382" height="1"/>
                                 <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Lpd-h2-EYg"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상영중인 공연" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6UI-rQ-hJ8">
-                                <rect key="frame" x="116" y="289" width="88" height="15"/>
+                                <rect key="frame" x="116" y="458" width="182" height="15"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="SeN-CB" family="SeoulNamsan CB" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uPd-hn-4r5">
-                                <rect key="frame" x="20" y="325" width="280" height="223"/>
+                                <rect key="frame" x="20" y="494" width="374" height="348"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qly-8F-fGG">
                                     <size key="itemSize" width="50" height="50"/>
@@ -875,7 +875,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="all" width="56" height="40"/>
+        <image name="all" width="56" height="39.666667938232422"/>
         <image name="childAndFamily" width="50" height="50"/>
         <image name="concertAndShow" width="50" height="50"/>
         <image name="house" catalog="system" width="64" height="54"/>
@@ -891,7 +891,7 @@
         <image name="slider.horizontal.3" catalog="system" width="64" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cZf-jc-XhI"/>
+        <segue reference="j0u-k0-zZa"/>
         <segue reference="g1e-ex-f4Z"/>
     </inferredMetricsTieBreakers>
 </document>
