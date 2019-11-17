@@ -17,7 +17,7 @@ class HomeVC: ExpandingViewController {
     fileprivate let items: [String] = ["극장 동국", "나온씨어터", "노을소극장", "대학로 스튜디오 76", "드림시어터", "선돌극장", "소극장 공유", "소극장 혜화당", "아름다운극장", "연극실험실 혜화동1번지", "연우소극장", "예술공간 서울", "예술공간 오르다", "예술공간 혜화"]
 
     override func viewDidLoad() {
-        itemSize = CGSize(width: 256, height: 350)
+        itemSize = CGSize(width: 400, height: 600)
         super.viewDidLoad()
         configureNavigationBarTitleView()
         registerCell()

@@ -33,7 +33,7 @@ class InfoShowTableViewCell: UITableViewCell {
         self.showNameLbl.text = data.showName
         self.showPeriodLbl.text = data.period
         self.theaterNameLbl.text = data.theaterName
-        self.showAgeLbl.text = data.showImage
+        self.showAgeLbl.text = data.showAge
     }
     
 }

@@ -18,61 +18,59 @@ class TheaterDetailVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private var simpleShowArr = [SimpleShowInfo]()
+    private var shows = Dummy.shared.theaterDetails[0]
+    private var theaterId = 0
     
     var delegate: DetailInfoDelegate?
-    
-    private let httpClient = HTTPClient()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBarTitleView()
-        collectionView.register(UINib(nibName: "AShowInMotionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AShowInMotionCollectionViewCell")
+        setData(Dummy.shared.theaterDetails[theaterId])
+    }
+
+    private func setData(_ data: TheaterDetailInfo) {
+        theaterImgView.kf.setImage(with: URL(string: data.theaterImage))
+        theaterNameLbl.text = data.theaterName
+        theaterPhoneNumberLbl.text = data.phoneNumber
+        theaterLocationLbl.text = data.location
+        numberOfSeatsLbl.text = "\(data.seatNumber)석"
+        shows = data
     }
     
 }
-
-extension TheaterDetailVC: DetailTheaterInfoAPIProvider {
-    
-    func getTheaterDetailInfo(theaterId: String) {
-        httpClient.get(url: SoulURL.detailInfoTheater(theaterId: theaterId).getPath())
-            .responseData { [weak self] (data) in
-                guard let strongSelf = self else { return }
-                guard let data = data.data, let response = try? JSONDecoder().decode(TheaterDetailInfo.self, from: data) else { return }
-                DispatchQueue.main.async {
-                    strongSelf.theaterImgView.kf.setImage(with: URL(string: response.theaterImage))
-                    strongSelf.theaterNameLbl.text = response.theaterName
-                    strongSelf.theaterPhoneNumberLbl.text = response.phoneNumber
-                    strongSelf.theaterLocationLbl.text = response.location
-                    strongSelf.numberOfSeatsLbl.text = "\(response.seatNumber)"
-                    strongSelf.simpleShowArr = response.shows
-                }
-        }
-    }
-}
-
 
 extension TheaterDetailVC: DetailInfoDelegate {
-    func getId(id: String) {
-        getTheaterDetailInfo(theaterId: id)
+    func getId(id: Int) {
+        theaterId = id
     }
 }
 
 extension TheaterDetailVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AShowInMotionCollectionViewCell", for: indexPath) as! AShowInMotionCollectionViewCell
-        cell.configure(info: simpleShowArr[indexPath.row])
+        cell.configure(info: shows)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ShowDetailVC") as! ShowDetailVC
         delegate = vc
-        delegate?.getId(id: simpleShowArr[indexPath.row].showId)
+        delegate?.getId(id: shows.shows[0].showId)
         self.navigationController?.pushViewController(vc, animated: false)
+    }
+}
+
+class AShowInMotionCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var showImgView: UIImageView!
+    @IBOutlet weak var showNameLbl: UILabel!
+
+    func configure(info: TheaterDetailInfo) {
+        showImgView.kf.setImage(with: URL(string: info.shows[0].showImage))
+        showNameLbl.text = info.shows[0].showName
     }
 }

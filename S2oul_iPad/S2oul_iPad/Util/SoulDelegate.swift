@@ -13,5 +13,5 @@ protocol SortAndGenreDelegate {
 }
 
 protocol DetailInfoDelegate {
-    func getId(id: String)
+    func getId(id: Int)
 }

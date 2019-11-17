@@ -11,7 +11,6 @@ import UIKit
 class SearchTheaterTableViewCell: UITableViewCell {
 
     @IBOutlet weak var theaterNameLbl: UILabel!
-    @IBOutlet weak var theaterDistanceLbl: UILabel!
     @IBOutlet weak var theaterLocationLbl: UILabel!
     @IBOutlet weak var theaterPhoneNumberLbl: UILabel!
     
@@ -26,7 +25,7 @@ class SearchTheaterTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func configure(info: SearchTheaterInfo) {
+    func configure(info: TheaterInfo) {
         theaterNameLbl.text = info.theaterName
         theaterLocationLbl.text = info.location
         theaterPhoneNumberLbl.text = info.phoneNumber

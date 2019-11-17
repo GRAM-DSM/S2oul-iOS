@@ -1,0 +1,23 @@
+[
+    {
+        "theaterImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/tht/201307241719200.jpg",
+        "theaterName" : "한양레퍼토리씨어터",
+        "phoneNumber" : "02-764-6460",
+        "location" : "서울특별시 종로구 대학로 144 중원빌",
+        "theaterId" : 0,
+    },
+    {
+        "theaterImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/tht/201307121603570.jpg",
+        "theaterName" : "삼일로 창고극장",
+        "phoneNumber" : "02-319-8020",
+        "location" : "서울특별시 중구 삼일대로9길 12 삼일로창고극장",
+        "theaterId" : 1
+    },
+    {
+        "theaterImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/tht/201707121456440.jpg",
+        "theaterName" : "소극장 혜화당",
+        "phoneNumber" : "02-742-1505",
+        "location" : "서울특별시 종로구 대학로12길 63 석마빌딩",
+        "theaterId" : 2
+    }
+]
