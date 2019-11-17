@@ -14,7 +14,7 @@ struct ShowInfo: Codable {
     let period: String
     let theaterName: String
     let showAge: String
-    let showId: String
+    let showId: Int
 }
 
 struct TheaterInfo: Codable {
@@ -22,5 +22,5 @@ struct TheaterInfo: Codable {
     let theaterName: String
     let phoneNumber: String
     let location: String
-    let theaterId: String
+    let theaterId: Int
 }

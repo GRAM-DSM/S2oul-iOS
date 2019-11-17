@@ -21,7 +21,7 @@ struct ShowDetailInfo: Codable {
     let theaterName: String
     let location: String
     let phoneNumber: String
-    let theaterId: String
+    let theaterId: Int
 }
 
 struct TheaterDetailInfo: Codable {
@@ -36,5 +36,5 @@ struct TheaterDetailInfo: Codable {
 struct SimpleShowInfo: Codable {
     let showImage: String
     let showName: String
-    let showId: String
+    let showId: Int
 }

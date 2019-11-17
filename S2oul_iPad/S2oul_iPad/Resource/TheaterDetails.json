@@ -1,0 +1,38 @@
+[
+    {
+        "theaterImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/tht/201307241719200.jpg",
+        "theaterName" : "한양레퍼토리씨어터",
+        "phoneNumber" : "02-764-6460",
+        "location" : "서울특별시 종로구 대학로 144 중원빌",
+        "seatNumber" : 126,
+        "shows" : [{
+            "showImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/201911021807511.jpg",
+            "showName" : "연극 <헤비메탈 걸스>",
+            "showId" : 0
+        }]
+    },
+    {
+        "theaterImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/tht/201307121603570.jpg",
+        "theaterName" : "삼일로 창고극장",
+        "phoneNumber" : "02-319-8020",
+        "location" : "서울특별시 중구 삼일대로9길 12 삼일로창고극장",
+        "seatNumber" : 100,
+        "shows" : [{
+            "showImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/201910271109461.jpg",
+            "showName" : "산책자의 행복",
+            "showId" : 1
+        }]
+    },
+    {
+        "theaterImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/tht/201707121456440.jpg",
+        "theaterName" : "소극장 혜화당",
+        "phoneNumber" : "02-742-1505",
+        "location" : "서울특별시 종로구 대학로12길 63 석마빌딩",
+        "seatNumber" : 130,
+        "shows" : [{
+            "showImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/201910091146201.jpg",
+            "showName" : "<제 4회 단단페스티벌>",
+            "showId" : 2
+        }]
+    },
+]
