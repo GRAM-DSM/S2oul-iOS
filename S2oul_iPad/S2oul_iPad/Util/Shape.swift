@@ -16,9 +16,9 @@ final class RoundButton: UIButton {
 
 final class Round10Button: UIButton {
     override func awakeFromNib() {
-        self.layer.cornerRadius = 10
+        self.layer.cornerRadius = 20
         self.layer.borderColor = UIColor.seoul.cgColor
-        self.layer.borderWidth = 1
+        self.layer.borderWidth = 2
     }
 }
 

@@ -16,11 +16,12 @@ class InfoVC : UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     private let httpClient = HTTPClient()
-    
-    private var showInfoArr = [ShowInfo]()
-    private var theaterInfoArr = [TheaterInfo]()
+
     private var sort = Sort.alphabetical
     private var genre = Genre.all
+
+    private var shows = Dummy.shared.shows
+    private var theaters = Dummy.shared.theaters
     
     var detailDelegate: DetailInfoDelegate?
     var genreDelegate: SortAndGenreDelegate?
@@ -31,7 +32,7 @@ class InfoVC : UIViewController {
         tableView.backgroundColor = UIColor.white
         tableView.register(UINib(nibName: "InfoShowTableViewCell", bundle: nil), forCellReuseIdentifier: "InfoShowTableViewCell")
         tableView.register(UINib(nibName: "InfoTheaterTableViewCell", bundle: nil), forCellReuseIdentifier: "InfoTheaterTableViewCell")
-        showOrTheaterSegmentedControlIsChanged(segmentedControl)
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -44,15 +45,10 @@ class InfoVC : UIViewController {
     
     @IBAction func showOrTheaterSegmentedControlIsChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            switch sort {
-            case .alphabetical:
-                getShowAlphabetInfo()
-            case .endDate:
-                getShowEndDateInfo()
-            }
+            tableView.reloadData()
             sortBtn.isHidden = false
         } else {
-            getTheaterAlphabetInfo()
+            tableView.reloadData()
             sortBtn.isHidden = true
         }
     }
@@ -66,59 +62,20 @@ extension InfoVC : SortAndGenreDelegate {
     }
 }
 
-extension InfoVC : InfoAPIProvider {
-    func getShowEndDateInfo() {
-        httpClient.get(url: SoulURL.showEndDate(genre: genre.rawValue).getPath())
-            .responseData { (data) in
-                guard let data = data.data, let response = try? JSONDecoder().decode([ShowInfo].self, from: data) else { return }
-                DispatchQueue.main.async {
-                    self.showInfoArr = response
-                    self.tableView.reloadData()
-                }
-        }
-    }
-    
-    func getShowAlphabetInfo() {
-        httpClient.get(url: SoulURL.showAlphabet(genre: genre.rawValue).getPath())
-            .responseData { (data) in
-                guard let data = data.data, let response = try? JSONDecoder().decode([ShowInfo].self, from: data) else { return }
-                DispatchQueue.main.async {
-                    self.showInfoArr = response
-                    self.tableView.reloadData()
-                }
-        }
-    }
-    
-    func getTheaterAlphabetInfo() {
-        httpClient.get(url: SoulURL.theaterAlphabet.getPath())
-            .responseData { (data) in
-                guard let data = data.data, let response = try? JSONDecoder().decode([TheaterInfo].self, from: data) else { return }
-                DispatchQueue.main.async {
-                    self.theaterInfoArr = response
-                    self.tableView.reloadData()
-                }
-        }
-    }
-    
-}
-
 extension InfoVC: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return segmentedControl.selectedSegmentIndex == 0 ? showInfoArr.count : theaterInfoArr.count
+        return segmentedControl.selectedSegmentIndex == 0 ? shows.count : theaters.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if segmentedControl.selectedSegmentIndex == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoShowTableViewCell") as! InfoShowTableViewCell
-            cell.configure(data: showInfoArr[indexPath.row])
+            cell.configure(data: shows[indexPath.row])
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoTheaterTableViewCell") as! InfoTheaterTableViewCell
-            cell.configure(data: theaterInfoArr[indexPath.row])
+            cell.configure(data: theaters[indexPath.row])
             return cell
         }
         
@@ -128,12 +85,12 @@ extension InfoVC: UITableViewDelegate, UITableViewDataSource {
         if segmentedControl.selectedSegmentIndex == 0 {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "ShowDetailVC") as! ShowDetailVC
             detailDelegate = vc
-            detailDelegate?.getId(id: showInfoArr[indexPath.row].showId)
+            detailDelegate?.getId(id: shows[indexPath.row].showId)
             self.navigationController?.pushViewController(vc, animated: false)
         } else {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "TheaterDetailVC") as! TheaterDetailVC
             detailDelegate = vc
-            detailDelegate?.getId(id: theaterInfoArr[indexPath.row].theaterId)
+            detailDelegate?.getId(id: theaters[indexPath.row].theaterId)
             self.navigationController?.pushViewController(vc, animated: false)
         }
     }

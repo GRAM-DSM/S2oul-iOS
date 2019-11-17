@@ -13,12 +13,12 @@ struct SearchShowInfo: Codable {
     let theaterName: String
     let genre: String
     let age: String
-    let showId: String
+    let showId: Int
 }
 
 struct SearchTheaterInfo: Codable {
     let theaterName: String
     let location: String
     let phoneNumber: String
-    let theaterId: String
+    let theaterId: Int
 }

@@ -22,9 +22,9 @@ class SearchVC: UIViewController {
 
     let searchBar = UISearchBar()
 
-    var searchShowResults = [SearchShowInfo]()
-    var searchTheaterResults = [SearchTheaterInfo]()
-    var searchHistory: [String]? = UserDefaults.standard.stringArray(forKey: "SearchHistory")
+    var searchShowResults = [ShowInfo]()
+    var searchTheaterResults = [TheaterInfo]()
+    var searchHistory = [String]()
     var delegate: SortAndGenreDelegate?
     var detailDelegate: DetailInfoDelegate?
 
@@ -32,6 +32,9 @@ class SearchVC: UIViewController {
         super.viewDidLoad()
         configureNavigationBarTitleView()
         searchBarConfigure()
+        if let history = UserDefaults.standard.array(forKey: "SearchHistory") as? [String]{
+            searchHistory = history
+        }
         tableView.backgroundColor = UIColor.white
         tableView.register(UINib(nibName: "SearchShowTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchShowTableViewCell")
         tableView.register(UINib(nibName: "SearchTheaterTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchTheaterTableViewCell")
@@ -39,6 +42,7 @@ class SearchVC: UIViewController {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        print(searchHistory)
         UserDefaults.standard.set(searchHistory, forKey: "SearchHistory")
     }
 
@@ -53,57 +57,14 @@ class SearchVC: UIViewController {
     @objc func deleteRows(_ sender: UIButton) {
         let point = sender.convert(CGPoint.zero, to: tableView)
         guard let indexPath = tableView.indexPathForRow(at: point) else { return }
-        searchHistory?.remove(at: indexPath.row)
+        searchHistory.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 
     @IBAction func segmentedControlAction(_ sender: UISegmentedControl) {
         searchBar.placeholder = sender.titleForSegment(at: sender.selectedSegmentIndex)! + "검색"
+        searchBar.text = nil
         tableView.reloadData()
-    }
-}
-
-extension SearchVC: SearchAPIProvider {
-    func searchShow(keyword: String) {
-        let query = "?searchType=" + genre.rawValue + "&searchType=" + sort.rawValue + "&keyword=" + keyword
-        httpClient.get(url: SoulURL.searchShow(search: query).getPath())
-            .responseData { [weak self] (response) in
-                guard let strongSelf = self else { return }
-                DispatchQueue.main.async {
-                    guard let response = response.data, let data = try? JSONDecoder().decode([SearchShowInfo].self, from: response) else {
-                        strongSelf.placeholderLbl.text = "검색결과가 없습니다"
-                        strongSelf.tableView.reloadData()
-                        return
-                    }
-                    strongSelf.searchShowResults = data
-                    strongSelf.tableView.reloadData()
-                    strongSelf.searchHistory?.forEach({ (history) in
-                        if history == keyword { return }
-                        strongSelf.searchHistory?.append(keyword)
-                    })
-                }
-        }
-    }
-
-    func searchTheater(keyword: String) {
-        let query = "?keyword=" + keyword
-        httpClient.get(url: SoulURL.searchShow(search: query).getPath())
-            .responseData { [weak self] (response) in
-                guard let strongSelf = self else { return }
-                DispatchQueue.main.async {
-                    guard let response = response.data, let data = try? JSONDecoder().decode([SearchTheaterInfo].self, from: response) else {
-                        strongSelf.placeholderLbl.text = "검색결과가 없습니다"
-                        strongSelf.tableView.reloadData()
-                        return
-                    }
-                    strongSelf.searchTheaterResults = data
-                    strongSelf.tableView.reloadData()
-                    strongSelf.searchHistory?.forEach({ (history) in
-                        if history == keyword { return }
-                        strongSelf.searchHistory?.append(keyword)
-                    })
-                }
-        }
     }
 }
 
@@ -119,8 +80,45 @@ extension SearchVC: UISearchBarDelegate {
         searchBar.placeholder = "공연검색"
         searchBar.tintColor = UIColor.white
         searchBar.delegate = self
+        searchBar.searchTextField.textColor = .white
         self.definesPresentationContext = true
         self.navigationItem.titleView = searchBar
+    }
+
+    private func searchShow(keyword: String) {
+        let dummy = Dummy.shared.shows
+        searchShowResults = [ShowInfo]()
+        let result = dummy.contains(where: { [weak self] (info) -> Bool in
+            guard let strongSelf = self else { return false }
+            if info.showName.contains(keyword) {
+                strongSelf.searchShowResults.append(info)
+                return true
+            } else { return false }
+        })
+        if result && !searchHistory.contains(keyword) {
+            searchHistory.append(keyword)
+        } else {
+            placeholderLbl.text = "검색결과가 없습니다"
+        }
+        tableView.reloadData()
+    }
+
+    private func searchTheater(keyword: String) {
+        let dummy = Dummy.shared.theaters
+        searchTheaterResults = [TheaterInfo]()
+        let result = dummy.contains(where: { [weak self] (info) -> Bool in
+            guard let strongSelf = self else { return false }
+            if info.theaterName.contains(keyword) {
+                strongSelf.searchTheaterResults.append(info)
+                return true
+            } else { return false}
+        })
+        if result && !searchHistory.contains(keyword) {
+            searchHistory.append(keyword)
+        } else {
+            placeholderLbl.text = "검색결과가 없습니다"
+        }
+        tableView.reloadData()
     }
 
     private func getCurrentSearchState() -> SearchState {
@@ -161,15 +159,15 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch getCurrentSearchState() {
         case .none:
-            guard let history = searchHistory else { placeholderLbl.isHidden = false; return 0 }
+            if searchHistory.isEmpty { placeholderLbl.isHidden = false; return 0 }
             placeholderLbl.isHidden = true
-            return history.count
+            return searchHistory.count
         case .show:
-            if searchShowResults.count == 0 { placeholderLbl.isHidden = false; return 0 }
+            if searchShowResults.isEmpty { placeholderLbl.isHidden = false; return 0 }
             placeholderLbl.isHidden = true
             return searchShowResults.count
         case .theater:
-            if searchTheaterResults.count == 0 { placeholderLbl.isHidden = false; return 0 }
+            if searchTheaterResults.isEmpty { placeholderLbl.isHidden = false; return 0 }
             placeholderLbl.isHidden = true
             return searchTheaterResults.count
         }
@@ -177,12 +175,10 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
-
         switch getCurrentSearchState() {
         case .none:
             let cell = tableView.dequeueReusableCell(withIdentifier: "SearchHistoryTableViewCell") as! SearchHistoryTableViewCell
-            guard let history = searchHistory else { return cell }
-            cell.configure(history: history[index])
+            cell.configure(history: searchHistory[index])
             cell.deleteBtn.addTarget(self, action: #selector(deleteRows(_:)), for: .touchUpInside)
             return cell
         case .show:
@@ -199,8 +195,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch getCurrentSearchState() {
         case .none:
-            guard let history = searchHistory else { return }
-            searchBar.text = history[indexPath.row]
+            searchBar.text = searchHistory[indexPath.row]
             searchBarSearchButtonClicked(searchBar)
         case .show:
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "ShowDetailVC") as! ShowDetailVC

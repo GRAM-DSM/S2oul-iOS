@@ -13,7 +13,6 @@ import Kingfisher
 class ShowDetailTheaterCell: UITableViewCell {
 
     @IBOutlet weak var theaterNameLbl: UILabel!
-    @IBOutlet weak var theaterDistanceLbl: UILabel!
     @IBOutlet weak var theaterLocationLbl: UILabel!
     @IBOutlet weak var theaterPhoneNumberLbl: UILabel!
     @IBOutlet weak var theaterImgView: UIImageView!
@@ -31,7 +30,6 @@ class ShowDetailTheaterCell: UITableViewCell {
 
     func configure(info: ShowDetailInfo) {
         theaterNameLbl.text = info.theaterName
-        theaterDistanceLbl.text = info.location
         theaterLocationLbl.text = info.location
         theaterPhoneNumberLbl.text = info.phoneNumber
         theaterImgView.kf.setImage(with: URL(string: info.theaterImage))

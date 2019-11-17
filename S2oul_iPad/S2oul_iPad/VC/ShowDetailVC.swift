@@ -26,6 +26,7 @@ class ShowDetailVC: UIViewController {
 
     private var reservationLink = ""
     private var theaterInfo: ShowDetailInfo?
+    private var showId = 0
 
     var delegate: DetailInfoDelegate?
 
@@ -35,6 +36,7 @@ class ShowDetailVC: UIViewController {
         super.viewDidLoad()
         configureNavigationBarTitleView()
         tableView.register(UINib(nibName: "ShowDetailTheaterCell", bundle: nil), forCellReuseIdentifier: "ShowDetailTheaterCell")
+        setData(Dummy.shared.showDetails[showId])
     }
 
     private func setData(_ data: ShowDetailInfo) {
@@ -46,7 +48,8 @@ class ShowDetailVC: UIViewController {
         theaterNameLbl.text = data.theaterName
         runningTimeLbl.text = data.runningTime
         reservationLink = data.link
-        summaryImgView.kf.setImage(with: URL(string: data.summaryImage))
+        summaryImgView.image = Dummy.shared.summaryImages[showId]
+        summaryImgView.frame = CGRect(origin: .zero, size: CGSize(width: 600, height: 10000))
         theaterInfo = data
         tableView.reloadData()
     }
@@ -57,26 +60,11 @@ class ShowDetailVC: UIViewController {
             self.present(vc, animated: true, completion: nil)
         }
     }
-
 }
-
-extension ShowDetailVC: DetailShowInfoAPIProvider {
-    func getShowDetailInfo(showId: String) {
-        httpClient.get(url: SoulURL.detailInfoShow(showId: showId).getPath())
-            .responseData { [weak self] (data) in
-                guard let strongSelf = self else { return }
-                guard let data = data.data, let response = try? JSONDecoder().decode(ShowDetailInfo.self, from: data) else { return }
-                DispatchQueue.main.async {
-                    strongSelf.setData(response)
-                }
-        }
-    }
-}
-
 
 extension ShowDetailVC: DetailInfoDelegate {
-    func getId(id: String) {
-        getShowDetailInfo(showId: id)
+    func getId(id: Int) {
+        showId = id
     }
 }
 
@@ -93,7 +81,7 @@ extension ShowDetailVC: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "TheaterDetail") as! TheaterDetailVC
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "TheaterDetailVC") as! TheaterDetailVC
         guard let info = theaterInfo else { return }
         delegate = vc
         delegate?.getId(id: info.theaterId)

@@ -11,7 +11,7 @@ import UIKit
 class SearchShowTableViewCell: UITableViewCell {
     @IBOutlet weak var showNameLbl: UILabel!
     @IBOutlet weak var theaterNameLbl: UILabel!
-    @IBOutlet weak var genreAndShowAgeLbl: UILabel!
+    @IBOutlet weak var periodAndShowAgeLbl: UILabel!
     
 
     override func awakeFromNib() {
@@ -25,10 +25,10 @@ class SearchShowTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func configure(info: SearchShowInfo) {
+    func configure(info: ShowInfo) {
         showNameLbl.text = info.showName
         theaterNameLbl.text = info.theaterName
-        genreAndShowAgeLbl.text = info.genre + " / " + info.age
+        periodAndShowAgeLbl.text = info.period + " / " + info.showAge
     }
     
 }

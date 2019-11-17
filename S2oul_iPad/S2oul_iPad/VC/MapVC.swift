@@ -112,7 +112,7 @@ extension MapVC: UITableViewDelegate, UITableViewDataSource {
                                location: theater.location,
                                theaterId: theater.theaterId)
         cell.configure(data: info)
-        mapView.addAnnotation(makeAnnotaion(lat: theater.latitude, lng: theater.longtitude, name: theater.theaterName))
+        mapView.addAnnotation(makeAnnotaion(lat: theater.latitude, lng: theater.longitude, name: theater.theaterName))
         return cell
     }
 
