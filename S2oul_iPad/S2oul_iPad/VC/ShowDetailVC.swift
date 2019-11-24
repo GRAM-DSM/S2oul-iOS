@@ -23,6 +23,7 @@ class ShowDetailVC: UIViewController {
 
     @IBOutlet weak var summaryImgView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var summaryImgViewHeightConstraint: NSLayoutConstraint!
 
     private var reservationLink = ""
     private var theaterInfo: ShowDetailInfo?
@@ -48,8 +49,9 @@ class ShowDetailVC: UIViewController {
         theaterNameLbl.text = data.theaterName
         runningTimeLbl.text = data.runningTime
         reservationLink = data.link
-        summaryImgView.image = Dummy.shared.summaryImages[showId]
-        summaryImgView.frame = CGRect(origin: .zero, size: CGSize(width: 600, height: 10000))
+        let summary = Dummy.shared.summaryImgs[showId]
+        summaryImgViewHeightConstraint.constant = summary.size.height
+        summaryImgView.image = summary
         theaterInfo = data
         tableView.reloadData()
     }

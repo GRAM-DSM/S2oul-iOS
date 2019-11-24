@@ -16,22 +16,25 @@ class Dummy {
     var theaters = [TheaterInfo]()
     var showDetails = [ShowDetailInfo]()
     var theaterDetails = [TheaterDetailInfo]()
-    var summaryImages = [UIImage]()
+    var summaryImgs = [UIImage]()
 
     private init() {
-        for i in 0..<3 {
-            if let img = UIImage(named: "\(i).jpg") {
-                summaryImages.append(img)
+
+        for i in 0..<10 {
+            if let summaryImg = UIImage(contentsOfFile: "/Users/baby1234/Documents/GitHub/S2oul-iOS/S2oul_iPad/S2oul_iPad/Resource/\(i).jpg") {
+                summaryImgs.append(summaryImg)
+            } else {
+                print("image fail")
             }
         }
 
-        if let shows = Bundle.main.url(forResource: "Shows", withExtension: "json") {
+        if let shows = Bundle.main.url(forResource: "Show", withExtension: "json") {
             guard let data = try? Data(contentsOf: shows),
                 let json = try? JSONDecoder().decode([ShowInfo].self, from: data) else { return }
             self.shows = json
         } else { print("shows fail") }
 
-        if let theaters = Bundle.main.url(forResource: "Theaters", withExtension: "json") {
+        if let theaters = Bundle.main.url(forResource: "Theater", withExtension: "json") {
             guard let data = try? Data(contentsOf: theaters),
                 let json = try? JSONDecoder().decode([TheaterInfo].self, from: data) else { return }
             self.theaters = json
@@ -41,12 +44,12 @@ class Dummy {
             guard let data = try? Data(contentsOf: showDetails),
                 let json = try? JSONDecoder().decode([ShowDetailInfo].self, from: data)  else { print("showDetails fail"); return }
             self.showDetails = json
-        }
+        } else { print("showDetails fail") }
 
         if let theaterDetails = Bundle.main.url(forResource: "TheaterDetails", withExtension: "json") {
             guard let data = try? Data(contentsOf: theaterDetails),
                 let json = try? JSONDecoder().decode([TheaterDetailInfo].self, from: data) else { print("theaterDetails fail"); return }
             self.theaterDetails = json
-        }
+        } else { print("theaterDetails fail") }
     }
 }

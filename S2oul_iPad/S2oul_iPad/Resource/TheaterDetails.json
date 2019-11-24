@@ -1,26 +1,14 @@
 [
     {
-        "theaterImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/tht/201307241719200.jpg",
-        "theaterName" : "한양레퍼토리씨어터",
-        "phoneNumber" : "02-764-6460",
-        "location" : "서울특별시 종로구 대학로 144 중원빌",
-        "seatNumber" : 126,
+        "theaterImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/tht/201311011842120.jpg",
+        "theaterName" : "한얼소극장",
+        "phoneNumber" : "02-766-7010",
+        "location" : "서울특별시 종로구 창경궁로35길 17",
+        "seatNumber" : 80,
         "shows" : [{
-            "showImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/201911021807511.jpg",
-            "showName" : "연극 <헤비메탈 걸스>",
+            "showImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/201609241127291.JPG",
+            "showName" : "기억해봐",
             "showId" : 0
-        }]
-    },
-    {
-        "theaterImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/tht/201307121603570.jpg",
-        "theaterName" : "삼일로 창고극장",
-        "phoneNumber" : "02-319-8020",
-        "location" : "서울특별시 중구 삼일대로9길 12 삼일로창고극장",
-        "seatNumber" : 100,
-        "shows" : [{
-            "showImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/201910271109461.jpg",
-            "showName" : "산책자의 행복",
-            "showId" : 1
         }]
     },
     {
@@ -32,7 +20,103 @@
         "shows" : [{
             "showImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/201910091146201.jpg",
             "showName" : "<제 4회 단단페스티벌>",
+            "showId" : 1
+        }]
+    },
+  {
+        "theaterImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/tht/201506141150180.jpg",
+        "theaterName" : "예그린씨어터",
+        "phoneNumber" : "02-6673-0100",
+        "location" : "서울특별시 종로구 동숭길 130-5",
+        "seatNumber" : 202,
+        "shows" : [{
+            "showImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/201910041355111.jpg",
+            "showName" : "뮤지컬, 우리들의 사랑",
             "showId" : 2
         }]
     },
+  {
+        "theaterImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/tht/201307171439110.jpg",
+        "theaterName" : "스카이씨어터 1관",
+        "phoneNumber" : "02-742-7611",
+        "location" : "서울특별시 종로구 대학로8가길 52",
+        "seatNumber" : 200,
+        "shows" : [{
+            "showImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/201909201239491.jpg",
+            "showName" : "연극 <운빨로맨스>",
+            "showId" : 3
+        }]
+    },
+  {
+        "theaterImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/tht/201309051522450.jpg",
+        "theaterName" : "피카소소극장",
+        "phoneNumber" : "02-3672-7921",
+        "location" : "서울특별시 종로구 대명1길 20",
+        "seatNumber" : 85,
+        "shows" : [{
+            "showImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/201911061711581.jpg",
+            "showName" : "[2019'] 다시 보고픈 명품로코_연극[이프온리_대학로]",
+            "showId" : 4
+        }]
+    },
+  {
+        "theaterImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/tht/201506121208580.jpg",
+        "theaterName" : "대학로 연극 순위아트홀",
+        "phoneNumber" : "02-766-7667",
+        "location" : "서울특별시 종로구 대학로10길 11",
+        "seatNumber" : 110,
+        "shows" : [{
+            "showImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/201503061054201.jpg",
+            "showName" : "연극<작업의 정석>",
+            "showId" : 5
+        }]
+    },
+  {
+        "theaterImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/tht/201910091658130.jpg",
+        "theaterName" : "원패스 아트홀",
+        "phoneNumber" : "02-1522-0788",
+        "location" : "서울특별시 종로구 대학로12길 15 성좌소극장 대학로12길 15, 비전21 빌딩",
+        "seatNumber" : 130,
+        "shows" : [{
+            "showImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/201910091634321.jpg",
+            "showName" : "박해미의 So What",
+            "showId" : 6
+        }]
+    },
+  {
+        "theaterImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/tht/201506141320570.jpg",
+        "theaterName" : "위로홀",
+        "phoneNumber" : "070-8600-8342",
+        "location" : "서울특별시 종로구 동숭길 74",
+        "seatNumber" : 115,
+        "shows" : [{
+            "showImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/201910061132531.jpg",
+            "showName" : "<뮤지컬 지브로>",
+            "showId" : 7
+        }]
+    },
+  {
+        "theaterImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/tht/201702221312090.jpg",
+        "theaterName" : "JTN 아트홀 2관",
+        "phoneNumber" : "02-779-1595",
+        "location" : "서울특별시 종로구 이화장길 26 대학로 JTN아트홀",
+        "seatNumber" : 210,
+        "shows" : [{
+            "showImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/201905301744411.jpg",
+            "showName" : "발칙한 로맨스",
+            "showId" : 8
+        }]
+    },
+  {
+        "theaterImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/tht/201307191557380.jpg",
+        "theaterName" : "올래홀",
+        "phoneNumber" : "02-766-7733",
+        "location" : "서울특별시 종로구 대학로10길 24 충돌소극장",
+        "seatNumber" : 133,
+        "shows" : [{
+            "showImage" : "http://www.daehakroticket.com/univticket/rbs/data/files/ccontents/1/201908251039061.jpg",
+            "showName" : "연극 고스트",
+            "showId" : 9
+        }]
+    }
 ]
